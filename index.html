@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAN3107 EAII Practice 1 — Possible Response</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #c7d8ee;
+  color: #333;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background:
+    radial-gradient(circle at 12% 25%, rgba(255,255,255,0.35) 4px, transparent 5px),
+    radial-gradient(circle at 30% 70%, rgba(255,255,255,0.3) 6px, transparent 7px),
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,0.25) 8px, transparent 9px),
+    radial-gradient(circle at 70% 55%, rgba(255,255,255,0.35) 4px, transparent 5px),
+    radial-gradient(circle at 85% 30%, rgba(255,255,255,0.3) 5px, transparent 6px),
+    radial-gradient(circle at 95% 75%, rgba(255,255,255,0.35) 6px, transparent 7px),
+    radial-gradient(circle at 20% 90%, rgba(255,255,255,0.25) 7px, transparent 8px),
+    radial-gradient(circle at 60% 90%, rgba(255,255,255,0.3) 5px, transparent 6px);
+  animation: bubbles 18s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.06;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M20 120 C60 30 140 30 180 120' fill='none' stroke='%232c4a8f' stroke-width='2'/%3E%3Cpath d='M40 150 C80 70 140 70 170 150' fill='none' stroke='%232c4a8f' stroke-width='1.5'/%3E%3Cpath d='M60 180 C90 110 130 110 155 180' fill='none' stroke='%232c4a8f' stroke-width='1'/%3E%3C/svg%3E") repeat;
+}
+
+@keyframes bubbles {
+  0% { transform: translateY(0); opacity: 0.5; }
+  100% { transform: translateY(-32px); opacity: 1; }
+}
+
+.banner {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: kenburns 10s ease-in-out infinite alternate;
+  transform-origin: center center;
+  clip-path: inset(0 0 12% 0);
+}
+
+@keyframes kenburns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.page-header {
+  text-align: center;
+  padding: 20px 20px 0;
+  background: white;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-header h1 { font-size: 24px; color: #1f3865; margin-bottom: 4px; }
+.page-header p { font-size: 16px; color: #2c4a8f; margin-bottom: 4px; }
+.page-header .presented-by { font-size: 14px; color: #5573b8; font-style: italic; margin-top: 6px; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.tabs { display: flex; gap: 0; margin-bottom: 0; flex-wrap: wrap; }
+
+.tab-btn {
+  padding: 14px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: #bed0ea;
+  color: #4a5876;
+  border-radius: 10px 10px 0 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-btn:hover { background: #adc2e2; }
+.tab-btn.active { background: white; color: #2c4a8f; }
+
+.tab-content {
+  display: none;
+  background: white;
+  padding: 30px;
+  border-radius: 0 10px 10px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  line-height: 1.7;
+}
+
+.tab-content.active { display: block; }
+
+h1 { font-size: 22px; color: #1c3865; margin-bottom: 6px; }
+h2 { font-size: 18px; color: #2c4a8f; margin: 20px 0 10px; }
+h3 { font-size: 16px; color: #3c5caa; margin: 16px 0 8px; }
+
+.task-section { margin-bottom: 30px; }
+
+.agenda-box {
+  background: #eef4fd;
+  border-left: 4px solid #2c4a8f;
+  padding: 16px 22px;
+  margin: 14px 0;
+  border-radius: 0 8px 8px 0;
+  color: #33415e;
+}
+
+.agenda-box ul { padding-left: 20px; margin: 8px 0; }
+.agenda-box li { margin-bottom: 6px; }
+
+.meeting-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #f4f8ff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid #dbe7f7;
+  margin: 10px 0;
+  color: #2c4a8f;
+  font-weight: 600;
+}
+
+.meeting-meta .m-university {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1c3865;
+}
+
+/* ---- Possible Response / dialogue ---- */
+.exchange {
+  margin-bottom: 14px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #e1eaf7;
+  background: #fbfdff;
+}
+
+.exchange .meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #1c3865;
+}
+
+.exchange .speaker {
+  background: #2c4a8f;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.exchange .function { font-size: 12px; color: #5573b8; font-style: italic; font-weight: 500; }
+
+.exchange .text { font-size: 16px; color: #333; margin-top: 2px; line-height: 1.9; }
+
+/* ---- Audio player ---- */
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 14px 0 10px;
+}
+.play-all-btn {
+  background: #2c4a8f; color: #fff; border: none; border-radius: 8px;
+  padding: 8px 18px; font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: background 0.2s;
+}
+.play-all-btn:hover { background: #1c3865; }
+.pause-btn {
+  background: #d4a043; color: #fff; border: none; border-radius: 8px;
+  padding: 8px 14px; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.pause-btn:hover { background: #b8892e; }
+.stop-btn {
+  background: #c0392b; color: #fff; border: none; border-radius: 8px;
+  padding: 8px 14px; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.stop-btn:hover { background: #a93226; }
+.speed-label { font-size: 13px; color: #5573b8; margin-left: auto; }
+.speed-select {
+  font-size: 13px; padding: 4px 8px; border: 1px solid #d4e2f5;
+  border-radius: 6px; background: #f4f8ff; color: #33415e; cursor: pointer;
+}
+.now-playing {
+  background: linear-gradient(135deg, #2c4a8f 0%, #5573b8 100%);
+  border-radius: 12px; padding: 12px 18px; margin-bottom: 16px;
+  display: none; animation: fadeUp 0.3s ease both;
+}
+.now-playing.active { display: block; }
+.now-playing-label {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.15em; color: rgba(255,255,255,0.65); margin-bottom: 5px;
+}
+.now-playing-text { font-size: 16px; color: #fff; line-height: 1.5; }
+
+.speaker-btn {
+  width: 42px; height: 42px; border-radius: 10px; border: none; cursor: pointer;
+  font-weight: 700; font-size: 15px; color: #fff; transition: all 0.2s ease;
+  flex-shrink: 0; position: relative; overflow: hidden;
+}
+.speaker-btn:hover { opacity: 0.85; }
+.speaker-btn:active { transform: scale(0.93); }
+.speaker-btn.role-A { background: #5c8260; }
+.speaker-btn.role-B { background: #8c7355; }
+.speaker-btn.role-C { background: #4a6c8f; }
+.speaker-btn.role-D { background: #8a5a3a; }
+.speaker-btn.role-ALL {
+  background: linear-gradient(135deg, #7a9e7e, #4a6c8f);
+  font-size: 11px; letter-spacing: 0.05em;
+}
+.audio-pulse {
+  display: none; width: 8px; height: 8px; border-radius: 50%;
+  background: #f1c40f; position: absolute; top: 4px; right: 4px;
+  animation: pulse 1s infinite;
+}
+.speaker-btn.playing .audio-pulse { display: block; }
+
+.word-wrap { display: inline; }
+.word-wrap .word {
+  display: inline-block; position: relative; transition: color 0.15s; cursor: pointer;
+}
+.word-wrap .word:hover { background: rgba(122,158,126,0.15); border-radius: 4px; }
+.word-wrap .word.speaking { color: #c0392b; font-weight: 700; }
+.word-wrap .word.active { color: #2d6a4f; font-weight: 700; }
+.word-wrap .word.active::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 3px; background: #f1c40f; border-radius: 2px;
+}
+
+.cn-translation {
+  display: none;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #fff8f0;
+  border-left: 3px solid #e8a87c;
+  border-radius: 0 6px 6px 0;
+  font-size: 14px;
+  color: #8b5a2b;
+  line-height: 1.6;
+}
+
+.cn-active .cn-translation { display: block; }
+
+.cn-toggle-wrap { text-align: right; margin-bottom: 10px; }
+
+.cn-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c4a8f;
+  user-select: none;
+}
+
+.cn-toggle input {
+  width: 40px;
+  height: 22px;
+  appearance: none;
+  background: #bed0ea;
+  border-radius: 11px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.cn-toggle input::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s;
+}
+
+.cn-toggle input:checked { background: #2c4a8f; }
+.cn-toggle input:checked::before { transform: translateX(18px); }
+
+.video-box { max-width: 1000px; }
+.video-box video {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  display: block;
+  background: #000;
+  object-fit: contain;
+}
+
+.video-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  border: 2px dashed #9db7dd;
+  border-radius: 12px;
+  background: #f4f8ff;
+  color: #5573b8;
+  font-size: 18px;
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <img src="banner.png" alt="Banner">
+</div>
+
+<div class="page-header">
+  <h1>Essential Workplace Communication: Effective Oral Interaction (LAN3107)</h1>
+  <p>EAII Practice 1 — Meetings: Improving the Business of Home Essence</p>
+  <p class="presented-by">Presented by Rebecca Tang</p>
+</div>
+
+<div class="container">
+  <div class="cn-toggle-wrap">
+    <label class="cn-toggle">
+      <input type="checkbox" onchange="toggleAllCN(this.checked)">
+      <span>中文翻译</span>
+    </label>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(0)">TAB 1 — Task Overview</button>
+    <button class="tab-btn" onclick="switchTab(1)">TAB 2 — Possible Response</button>
+    <button class="tab-btn" onclick="switchTab(2)">TAB 3 — Video</button>
+  </div>
+
+  <!-- ============ TAB 1: TASK OVERVIEW ============ -->
+  <div class="tab-content active" id="tab-0">
+    <h1 data-cn="任務概覽">Task Overview</h1>
+
+    <div class="task-section">
+      <p data-cn="你是Home Essence的營銷團隊成員，Home Essence是香港一家銷售環保家居用品的零售店。你和同事將舉行會議，討論改善業務的計劃。你應該：">
+        You are on the marketing team of <strong>Home Essence</strong>, a retail store selling
+        eco-friendly home essentials in Hong Kong. You and your colleagues are going to hold a meeting
+        to discuss plans to improve the business. You should:
+      </p>
+      <ul style="padding-left:20px; margin:10px 0;">
+        <li data-cn="就各議程項目提出你自己的建議">give your own suggestion(s) on the agenda items</li>
+        <li data-cn="解釋你提出建議的理由">explain the reason(s) for your suggestion(s)</li>
+        <li data-cn="積極聆聽，並透過表達喜好、同意或不同意來回應他人的建議">listen actively and respond to others' suggestions by expressing preferences, agreement, or disagreement</li>
+        <li data-cn="就議程第2至4項達成共識">reach a consensus on agenda items 2–4</li>
+      </ul>
+      <p data-cn="作為一組，你們必須涵蓋以下所有議程項目。">As a group, you must cover all the agenda items below.</p>
+    </div>
+
+    <div class="task-section" style="text-align:center;">
+      <h2 data-cn="會議詳情">Meeting Details</h2>
+      <div class="meeting-meta">
+        <span class="m-university">Home Essence</span>
+        <span data-cn="營銷團隊">Marketing Team</span>
+        <span data-cn="10月1日20--年 下午2時30分 會議室">1 October 20-- at 2:30 p.m. in the Meeting Room</span>
+      </div>
+    </div>
+
+    <div class="task-section">
+      <h3 data-cn="議程">Agenda</h3>
+      <div class="agenda-box">
+        <ol style="padding-left:22px;">
+          <li data-cn="會議開始">Opening the meeting</li>
+          <li data-cn="十一月每月折扣產品">Monthly discounted products for November</li>
+          <li>
+            <span style="font-weight:600;" data-cn="吸引顧客的推廣策略">Promotion strategies for attracting customers</span>
+            <p style="margin-top:4px; font-weight:600; color:#2c4a8f;" data-cn="可能的策略：">Possible strategies:</p>
+            <ul style="padding-left:20px;">
+              <li data-cn="廣告">Advertisements</li>
+              <li data-cn="獎勵性優惠（優惠券／禮券）">Incentive-based offers (coupons/vouchers)</li>
+              <li data-cn="產品植入">Product placement</li>
+              <li data-cn="與社交媒體網紅合作">Collaborations with influencers on social media</li>
+            </ul>
+          </li>
+          <li>
+            <span style="font-weight:600;" data-cn="其他事項">AOB</span>
+            <p style="margin-top:4px; font-weight:600; color:#2c4a8f;" data-cn="在店內推廣更環保文化的方法：">Ways to promote a greener culture in the store:</p>
+            <ul style="padding-left:20px;">
+              <li data-cn="設置可補充水站">Set up a refillable water station</li>
+              <li data-cn="使用電子收據">Use of e-receipts</li>
+            </ul>
+          </li>
+          <li data-cn="會議結束">Closing the meeting</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TAB 2: POSSIBLE RESPONSE ============ -->
+  <div class="tab-content" id="tab-1">
+    <h1 data-cn="模擬回應">Possible Response</h1>
+    <p style="color:#666; margin-bottom:16px;" data-cn="建議的會議對話（完整答案）。每輪發言上方的「斜體藍字」列明溝通功能。">
+      Suggested meeting conversation (full answer). Communicative functions are shown in the
+      <em>italic blue</em> line above each turn.
+    </p>
+    <div class="player-controls">
+      <button class="play-all-btn" onclick="playAll()">▶ Play All</button>
+      <button class="pause-btn" onclick="pausePlay()">⏸ Pause</button>
+      <button class="stop-btn" onclick="stopPlay()">⏹ Stop</button>
+      <span class="speed-label">Speed</span>
+      <select class="speed-select" onchange="setSpeed(this.value)">
+        <option value="0.75">0.75×</option>
+        <option value="1" selected>1×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+      </select>
+    </div>
+    <div class="now-playing" id="nowPlaying">
+      <div class="now-playing-label">Now Playing</div>
+      <div class="now-playing-text" id="nowPlayingText">—</div>
+    </div>
+    <div id="dialogueBody"></div>
+  </div>
+
+  <!-- ============ TAB 3: VIDEO ============ -->
+  <div class="tab-content" id="tab-2">
+    <h1 data-cn="示範對話影片">Sample Conversation Video</h1>
+    <p style="color:#666; margin-bottom:16px;" data-cn="觀看一個關於改善Home Essence業務的會議。">Watch a meeting about improving the business of Home Essence.</p>
+    <div class="video-box">
+      <video controls playsinline preload="metadata" width="100%">
+        <source src="video.mp4" type="video/mp4">
+        <source src="LAN3107_EAII_Practice 1_video.m4v" type="video/mp4">
+        Your browser does not support the video tag. Try downloading:
+        <a href="video.mp4" download>video.mp4</a>
+      </video>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+
+var DIALOGUE = [
+  { sp: "B", fn: "Greetings, introductions", t: "Good morning, everyone. Welcome to today's meeting. Shall we start now?", f: "01.mp3", cn: "大家早晨好。歡迎出席今天的會議。我們現在開始好嗎？" },
+  { sp: "All", t: "Yes. / Sure.", f: "02.mp3", cn: "好。／當然可以。" },
+  { sp: "C", t: "Does everyone have a copy of the agenda?", f: "03.mp3", cn: "大家都有議程的副本嗎？" },
+  { sp: "All", t: "Yes. / We do.", f: "04.mp3", cn: "有。／我們有。" },
+  { sp: "D", t: "Great! The purpose of today's meeting is to discuss plans to improve the business.", f: "05.mp3", cn: "很好！今天會議的目的是討論改善業務的計劃。" },
+  { sp: "A", t: "We are going to cover three agenda items: the monthly discounted products, promotion strategies for attracting customers, and any other business that you would like to discuss.", f: "06.mp3", cn: "我們會涵蓋三項議程：每月折扣產品、吸引顧客的推廣策略，以及你們想討論的任何其他事項。" },
+  { sp: "C", fn: "Suggestions, evaluations, explanations, persuasion, discussions", t: "Let's begin by talking about our monthly discounted products for November. These discount sales always generate a huge amount of business for our store so we must select products that will attract customers to visit the shop. I suggest that we should offer discounts on eco-friendly kitchenware since the holiday season is coming up and people need utensils when hosting family gatherings. We could include reusable silicone food storage bags, bamboo cutting boards, stainless steel straws, and glass meal storage containers as discounted items.", f: "07.mp3", cn: "我們先從十一月每月折扣產品談起。這些折扣促銷活動總能為我們商店帶來大量生意，所以我們必須選擇能吸引顧客到店光顧的產品。我建議我們應在環保廚具上提供折扣，因為節日季節將至，人們在家裏舉辦家庭聚會時需要餐具。我們可以將可重複使用的矽膠食物儲存袋、竹製砧板、不銹鋼飲管和玻璃餐食儲存容器列為折扣商品。" },
+  { sp: "B", t: "I agree. These products are not only eco-friendly but also in high demand. Offering a discount would certainly attract more customers to buy them and encourage sustainable living. In addition, why don't we include home decorations in the November discounts as well? This would allow us to highlight our wide range of eco-friendly products, in addition to kitchenware. This may appeal to more customers. Do you see my point?", f: "08.mp3", cn: "我同意。這些產品不僅環保，而且需求量大。提供折扣肯定會吸引更多顧客購買，並鼓勵可持續生活方式。此外，我們何不把家居裝飾也納入十一月折扣呢？這樣除了廚具之外，也能突顯我們種類繁多的環保產品。這可能會吸引更多顧客。你們明白我的意思嗎？" },
+  { sp: "A", t: "Yes, that's exactly my point of view. By providing discounts on eco-friendly home decorations, such as recycled glass vases and sustainable candles, we could draw customers' attention to some of our products which have not been selling very well. Also, could we include LED light bulbs and rechargeable batteries in our November sale? Offering these energy-efficient products at a discounted price could encourage more eco-conscious purchases by our customers.", f: "09.mp3", cn: "是的，這正是我的觀點。透過為環保家居裝飾（例如再生玻璃花瓶和可持續蠟燭）提供折扣，我們可以吸引顧客留意一些銷量不佳的產品。另外，我們能否把 LED 燈泡和可充電電池納入十一月促銷？以折扣價提供這些節能產品，可以鼓勵顧客作出更環保的購買決定。" },
+  { sp: "C", t: "Umm, I'm afraid I don't think it is practical to sell energy-efficient products at discounted prices. The costs of these products are high. If we offer discounts on these products, it will affect our profit.", f: "10.mp3", cn: "嗯，恐怕我認為以折扣價出售節能產品並不實際。這些產品的成本很高。如果我們為這些產品提供折扣，會影響我們的利潤。" },
+  { sp: "D", t: "That's a valid point. But we have to think of ways to improve the sales of our energy-efficient appliances since we want to encourage energy conservation. Let's discuss how we can achieve this in more detail in our next meeting.", f: "11.mp3", cn: "這是合理的觀點。但我們要設法改善節能電器的銷量，因為我們希望鼓勵節約能源。讓我們在下次會議中更詳細地討論如何實現這一點。" },
+  { sp: "B", t: "OK, so we've heard several suggestions now. Can we reach a decision on what types of products we should put on sale in November to entice customers to our store? It seems like kitchenware and home decorations are the most popular recommendations. Can we all agree that we should present these options to management?", f: "12.mp3", cn: "好的，我們已經聽過幾個建議了。我們能否就十一月應推出哪些產品來吸引顧客到店作出決定？似乎廚具和家居裝飾是最受歡迎的建議。我們能否一致同意將這些選擇呈交管理層？" },
+  { sp: "All", t: "Sure. / We can. / Let's do that.", f: "13.mp3", cn: "好。／可以。／就那樣做吧。" },
+  { sp: "C", t: "Excellent! Let's move on to the next item on the agenda.", f: "14.mp3", cn: "很好！我們繼續討論下一項議程。" },
+  { sp: "D", fn: "Suggestions, preferences, explanations, persuasion, discussions", t: "What are your opinions on promotion strategies for attracting customers?", f: "15.mp3", cn: "你們對吸引顧客的推廣策略有何看法？" },
+  { sp: "A", t: "How about using online advertisements? By placing digital advertisements across various social media platforms, such as YouTube and Instagram, we could greatly increase the exposure of our store and attract potential customers.", f: "16.mp3", cn: "使用網上廣告如何？透過在各社交媒體平台（例如 YouTube 和 Instagram）投放數碼廣告，我們可以大幅提高商店的曝光率，並吸引潛在顧客。" },
+  { sp: "B", t: "You're right. Online advertisements would certainly reach a wide audience. Other than online advertisements, incentive-based offers such as coupons could be effective promotion tools as they can motivate customers to make in-store purchases directly.", f: "17.mp3", cn: "你說得對。網上廣告肯定能觸及廣大受眾。除了網上廣告，優惠券等獎勵性優惠也可作為有效的推廣工具，因為它們能直接促使顧客在店內購物。" },
+  { sp: "C", t: "Brilliant idea. People are drawn to discounts and special offers. So, if we give customers coupons on special occasions, such as the store's anniversary and festival weeks, we will surely boost sales.", f: "18.mp3", cn: "很棒的主意。人們會被折扣和特別優惠吸引。所以，如果我們在特別場合（例如商店周年紀念日和節日週）向顧客派發優惠券，我們肯定能提高銷量。" },
+  { sp: "All", t: "Yes. / Sure. / Wonderful.", f: "19.mp3", cn: "好。／當然可以。／太好了。" },
+  { sp: "D", t: "What if we do product placement in supermarkets to introduce our eco-friendly essentials to new customers? Or could we do product placements in movies and TV shows to reach an even wider audience? This is a proven way to generate interest in products and brands.", f: "20.mp3", cn: "如果我們在超市進行產品植入，向新顧客介紹我們的環保用品，怎麼？或者我們能否在電影和電視節目中進行產品植入，以觸及更廣泛的受眾？這是已被證實能引起人們對產品和品牌興趣的方法。" },
+  { sp: "A", t: "I'm sorry, but I don't think arranging product placements in supermarkets, movies, and TV shows would be feasible. I believe that it would cost a lot.", f: "21.mp3", cn: "對不起，但我認為在超市、電影和電視節目中進行產品植入並不可行。我相信這會花費很多金錢。" },
+  { sp: "C", t: "I think another effective strategy would be collaborating with influencers on social media. By sharing our products with their followers online, influencers can generate interest in our store and our products.", f: "22.mp3", cn: "我認為另一個有效的策略是與社交媒體上的網紅合作。透過在網上與他們的粉絲分享我們的產品，網紅可以引起人們對我們商店和產品的興趣。" },
+  { sp: "D", t: "That's a wonderful idea! Why don't we partner with influencers such as Macy Wong who are more popular with household shoppers to engage that target group?", f: "23.mp3", cn: "這是個很棒的主意！我們何不與 Macy Wong 等更受家庭購物者歡迎的網紅合作，以吸引該目標群組？" },
+  { sp: "B", t: "Great idea! Do we have a consensus on promotion strategies then? Can we all agree that we should use online advertisements and give coupons to customers on special occasions to promote our store?", f: "24.mp3", cn: "好主意！那麼我們對推廣策略有共識了嗎？我們能否一致同意使用網上廣告，並在特別場合向顧客派發優惠券來推廣我們的商店？" },
+  { sp: "All", t: "Yes.", f: "25.mp3", cn: "可以。" },
+  { sp: "A", t: "And do we all agree that we should collaborate with influencers on social media to increase people's awareness of our products and store?", f: "26.mp3", cn: "那麼我們是否都同意與社交媒體網紅合作，以提高人們對我們產品和商店的認識？" },
+  { sp: "All", t: "Yes.", f: "27.mp3", cn: "可以。" },
+  { sp: "B", t: "Fantastic! Does anyone have any other business that you would like to discuss?", f: "28.mp3", cn: "太棒了！還有沒有其他人想討論的其他事項？" },
+  { sp: "D", fn: "Suggestions, preferences, evaluations, explanations, persuasion, discussions", t: "Yes. I would like to discuss ways to promote a greener culture in the store. I suggest setting up a refillable water station in our store to encourage customers to reduce the consumption of single-use plastic bottles and promote sustainability.", f: "29.mp3", cn: "有。我想討論如何在店內推廣更環保的文化。我建議在店內設置可補充水站，鼓勵顧客減少使用即棄塑膠瓶，並推廣可持續發展。" },
+  { sp: "C", t: "Excellent idea! As we are a green local business, displaying greater sustainability in the store will definitely create a positive brand image. Moreover, I recommend using e-receipts instead of paper receipts to reduce paper waste.", f: "30.mp3", cn: "很棒的主意！作為一家綠色本地企業，在店內展現更強的可持續性肯定會建立正面的品牌形象。此外，我建議使用電子收據代替紙質收據，以減少紙張浪費。" },
+  { sp: "B", t: "I'm not so sure about that. Although introducing e-receipts would reduce paper wastage, we should consider the possible data security issues before implementing this plan. Let's discuss this topic in more detail in our next meeting. In the meantime, I would prefer to encourage greater use of reusable shopping bags in our store. Why don't we offer store coupons to all customers who bring reusable bags? By doing so, we can promote an eco-friendly shopping experience.", f: "31.mp3", cn: "我對此不太確定。雖然引入電子收據可以減少紙張浪費，但在實施此計劃之前，我們應考慮可能出現的數據安全問題。讓我們在下次會議中更詳細地討論這個話題。與此同時，我更傾向於鼓勵顧客多加使用可重複使用的購物袋。我們何不向所有攜帶可重複使用購物袋的顧客提供商店優惠券？這樣做可以推廣環保購物體驗。" },
+  { sp: "A", t: "Yes, setting up a refillable water station and giving coupons to customers who bring reusable shopping bags are very good suggestions. Do we all agree?", f: "32.mp3", cn: "是的，設置可補充水站和向攜帶可重複使用購物袋的顧客派發優惠券都是非常好的建議。我們都同意嗎？" },
+  { sp: "All", t: "Yes. / OK.", f: "33.mp3", cn: "好。／可以。" },
+  { sp: "A", t: "I have another idea. What about setting up recycling bins in our store? Having bins for paper, plastic, glass, and other recyclables would make it convenient for customers to dispose of items in an environmentally friendly way.", f: "34.mp3", cn: "我還有另一個想法。在店內設置回收箱如何？設置紙類、塑膠、玻璃和其他可回收物的回收箱，可方便顧客以環保方式棄置物品。" },
+  { sp: "D", t: "Absolutely. We can certainly do that. It would be a strong statement of our commitment to a green culture. We could place the bins near the shop exit.", f: "35.mp3", cn: "絕對可以。我們當然可以這樣做。這將是我們對綠色文化承諾的有力體現。我們可以把回收箱放在商店出口附近。" },
+  { sp: "C", t: "Alright. Let's present this idea to management as well. Do we have any other suggestions?", f: "36.mp3", cn: "好的。讓我們也把這個想法呈交管理層。還有其他建議嗎？" },
+  { sp: "All", t: "No. / I don't. / Not right now.", f: "37.mp3", cn: "沒有。／我沒有。／暫時沒有。" },
+  { sp: "A", t: "So, we have decided to reward customers using reusable shopping bags, set up recycling bins, and place a refillable water station in our store to strengthen the store's eco-friendly efforts.", f: "38.mp3", cn: "那麼，我們已決定獎勵使用可重複使用購物袋的顧客、設置回收箱，並在店內放置可補充水站，以加強商店的環保工作。" },
+  { sp: "D", fn: "Leave-taking", t: "Well, I think that's all we have time for today. We have some really promising ideas to take to management. Does anybody have anything else to contribute?", f: "39.mp3", cn: "好吧，我想今天我們討論的就是這些。我們有一些非常有前景的想法可以呈交管理層。各位還有沒有其他補充？" },
+  { sp: "All", t: "No. / I don't. / Not right now.", f: "40.mp3", cn: "沒有。／我沒有。／暫時沒有。" },
+  { sp: "B", t: "Well, if nobody has anything else to add, I think we can finish here. Thank you very much for attending the meeting and making contributions, everybody.", f: "41.mp3", cn: "好吧，如果沒有人有其他補充，我想我們可以在這裏結束。非常感謝各位出席會議並作出貢獻。" }
+];
+
+function renderDialogue() {
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var html = '';
+  DIALOGUE.forEach(function(ut) {
+    var role = ut.sp === 'All' ? 'ALL' : ut.sp;
+    var btn = '<button class="speaker-btn role-' + role + '" onclick="play(\'' + ut.f + '\', this)" title="Play">'
+      + role + '<div class="audio-pulse"></div></button>';
+    var cnDiv = ut.cn ? '<div class="cn-translation">' + esc(ut.cn) + '</div>' : '';
+    html += '<div class="exchange">'
+      + '<div class="meta">' + btn
+      + '<span class="speaker">' + ut.sp + '</span>'
+      + (ut.fn ? '<span class="function">' + esc(ut.fn) + '</span>' : '')
+      + '</div>'
+      + '<div class="text"><span class="script-text" data-cn="' + esc(ut.cn || '') + '">' + esc(ut.t) + '</span></div>'
+      + cnDiv
+      + '</div>';
+  });
+  document.getElementById('dialogueBody').innerHTML = html;
+}
+
+window.switchTab = function(i) {
+  var contents = document.querySelectorAll('.tab-content');
+  var buttons = document.querySelectorAll('.tab-btn');
+  contents.forEach(function(c) { c.classList.remove('active'); });
+  buttons.forEach(function(b) { b.classList.remove('active'); });
+  contents[i].classList.add('active');
+  buttons[i].classList.add('active');
+};
+
+// ---- Audio player ----
+var currentAudio = null;
+var currentBtn = null;
+var playAllTimer = null;
+var speed = 1;
+
+function getAllBtns() {
+  return Array.prototype.slice.call(document.querySelectorAll('.speaker-btn'));
+}
+
+function clearNowPlaying() {
+  var np = document.getElementById('nowPlaying');
+  np.classList.remove('active');
+  document.getElementById('nowPlayingText').textContent = '\u2014';
+}
+
+function clearWordTrack() {
+  document.querySelectorAll('.word-wrap .word.active').forEach(function(w) { w.classList.remove('active'); });
+  document.querySelectorAll('.script-text[data-orig-html]').forEach(function(el) {
+    el.innerHTML = el.dataset.origHtml;
+    delete el.dataset.origHtml;
+  });
+}
+
+function startWordTrack(btn, audio) {
+  var textEl = btn.closest('.exchange').querySelector('.script-text');
+  if (!textEl) return;
+
+  textEl.dataset.origHtml = textEl.innerHTML;
+  var text = textEl.textContent.trim();
+  var words = text.split(/\s+/);
+  var wordWrap = document.createElement('span');
+  wordWrap.className = 'word-wrap';
+  wordWrap.innerHTML = words.map(function(w) { return '<span class="word">' + w + '</span>'; }).join(' ');
+  textEl.innerHTML = '';
+  textEl.appendChild(wordWrap);
+  var wordSpans = textEl.querySelectorAll('.word');
+
+  var lastIdx = -1;
+  var handler = function() {
+    var dur = audio.duration;
+    if (!dur || isNaN(dur)) return;
+    var pct = audio.currentTime / dur;
+    var idx = Math.min(Math.floor(pct * words.length), words.length - 1);
+    if (idx !== lastIdx) {
+      if (lastIdx >= 0) wordSpans[lastIdx].classList.remove('active');
+      wordSpans[idx].classList.add('active');
+      lastIdx = idx;
+    }
+  };
+  audio.addEventListener('timeupdate', handler);
+  audio.addEventListener('ended', function() {
+    audio.removeEventListener('timeupdate', handler);
+    if (textEl.dataset.origHtml !== undefined) {
+      textEl.innerHTML = textEl.dataset.origHtml;
+      delete textEl.dataset.origHtml;
+    }
+  }, { once: true });
+}
+
+function setNowPlaying(btn) {
+  var textEl = btn.closest('.exchange').querySelector('.script-text');
+  if (textEl) {
+    var np = document.getElementById('nowPlaying');
+    var npText = document.getElementById('nowPlayingText');
+    npText.textContent = textEl.textContent.trim();
+    np.classList.add('active');
+  }
+}
+
+function stopCurrentAudio() {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    currentAudio = null;
+  }
+  if (currentBtn) { currentBtn.classList.remove('playing'); currentBtn = null; }
+}
+
+window.play = function(file, btn) {
+  stopCurrentAudio();
+  clearPlayAll();
+
+  var audio = new Audio('audio/' + file);
+  audio.playbackRate = speed;
+  currentAudio = audio;
+  currentBtn = btn;
+  btn.classList.add('playing');
+  setNowPlaying(btn);
+  startWordTrack(btn, audio);
+  audio.play().catch(function(e) {
+    console.warn('Audio not found: audio/' + file);
+    btn.classList.remove('playing');
+    clearNowPlaying();
+    clearWordTrack();
+  });
+  audio.addEventListener('ended', function() {
+    btn.classList.remove('playing');
+    clearNowPlaying();
+    clearWordTrack();
+    currentBtn = null;
+    currentAudio = null;
+  });
+};
+
+window.playAll = function() {
+  var btns = getAllBtns();
+  var idx = 0;
+
+  function playNext() {
+    if (idx >= btns.length) {
+      currentBtn = null;
+      return;
+    }
+    var btn = btns[idx];
+    var file = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+
+    stopCurrentAudio();
+    var audio = new Audio('audio/' + file);
+    audio.playbackRate = speed;
+    currentAudio = audio;
+    currentBtn = btn;
+    btn.classList.add('playing');
+    setNowPlaying(btn);
+    startWordTrack(btn, audio);
+
+    audio.play().catch(function(e) {
+      btn.classList.remove('playing');
+      idx++;
+      playNext();
+      return;
+    });
+    audio.addEventListener('ended', function() {
+      btn.classList.remove('playing');
+      clearWordTrack();
+      idx++;
+      playAllTimer = setTimeout(function() {
+        clearNowPlaying();
+        playNext();
+      }, 600);
+    });
+  }
+  clearPlayAll();
+  playNext();
+};
+
+function clearPlayAll() {
+  if (playAllTimer) {
+    clearTimeout(playAllTimer);
+    playAllTimer = null;
+  }
+}
+
+window.pausePlay = function() {
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+    if (currentBtn) currentBtn.classList.remove('playing');
+  }
+  clearPlayAll();
+};
+
+window.stopPlay = function() {
+  stopCurrentAudio();
+  clearPlayAll();
+  clearWordTrack();
+  clearNowPlaying();
+};
+
+window.setSpeed = function(val) {
+  speed = parseFloat(val);
+  if (currentAudio) currentAudio.playbackRate = speed;
+};
+
+window.toggleAllCN = function(show) {
+  document.querySelector('.container').classList.toggle('cn-active', show);
+};
+
+function initTranslations() {
+  document.querySelectorAll('.tab-content [data-cn]').forEach(function(el) {
+    if (el.dataset.cnProcessed) return;
+    el.dataset.cnProcessed = '1';
+    var trans = document.createElement('div');
+    trans.className = 'cn-translation';
+    trans.textContent = el.dataset.cn;
+    el.after(trans);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderDialogue();
+  initTranslations();
+});
+
+})();
+</script>
+
+</body>
+</html>
