@@ -1,0 +1,3736 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#2c4a8f">
+<title>LAN3107 EAII Practice 1: Home Essence (Slide Deck)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --sage: #5573b8;
+            --sage-light: #bed0ea;
+            --sage-pale: #eef3fb;
+            --earth: #1f3865;
+            --earth-mid: #2c4a8f;
+            --earth-light: #adc2e2;
+            --cream: #f6f9fd;
+            --white: #ffffff;
+            --text: #2d2d2d;
+            --text-muted: #5f6b80;
+            --divider: #d3ddee;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  background: #c7d8ee;
+  color: #333;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background:
+    radial-gradient(circle at 12% 25%, rgba(255,255,255,0.35) 4px, transparent 5px),
+    radial-gradient(circle at 30% 70%, rgba(255,255,255,0.3) 6px, transparent 7px),
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,0.25) 8px, transparent 9px),
+    radial-gradient(circle at 70% 55%, rgba(255,255,255,0.35) 4px, transparent 5px),
+    radial-gradient(circle at 85% 30%, rgba(255,255,255,0.3) 5px, transparent 6px),
+    radial-gradient(circle at 95% 75%, rgba(255,255,255,0.35) 6px, transparent 7px),
+    radial-gradient(circle at 20% 90%, rgba(255,255,255,0.25) 7px, transparent 8px),
+    radial-gradient(circle at 60% 90%, rgba(255,255,255,0.3) 5px, transparent 6px);
+  animation: bubbles 18s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.06;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M20 120 C60 30 140 30 180 120' fill='none' stroke='%232c4a8f' stroke-width='2'/%3E%3Cpath d='M40 150 C80 70 140 70 170 150' fill='none' stroke='%232c4a8f' stroke-width='1.5'/%3E%3Cpath d='M60 180 C90 110 130 110 155 180' fill='none' stroke='%232c4a8f' stroke-width='1'/%3E%3C/svg%3E") repeat;
+}
+
+@keyframes bubbles {
+  0% { transform: translateY(0); opacity: 0.5; }
+  100% { transform: translateY(-32px); opacity: 1; }
+}
+
+.slide-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 24px 52px;
+}
+
+        /* Tab bar */
+        .tab-bar {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 32px;
+        }
+
+        .tab-btn {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 10px 10px 0 0;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #1f3865;
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover { background: #3a5fb0; }
+        .tab-btn.active { background: #2c4a8f; color: white; }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .tab-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .response-placeholder {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 16px;
+            border: 2px dashed var(--divider);
+        }
+
+        .section {
+    margin-bottom: 12px;
+    animation: fadeUp 0.6s ease both;
+}
+
+
+        .meeting-photo img {
+            max-width: 66.667%;
+            height: auto;
+            border-radius: 16px;
+        }
+
+        /* Tab bar */
+        .tab-bar {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 32px;
+        }
+
+        .tab-btn {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 10px 10px 0 0;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #1f3865;
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover { background: #3a5fb0; }
+        .tab-btn.active { background: #2c4a8f; color: white; }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .tab-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 56px;
+            animation: fadeDown 0.8s ease both;
+        }
+
+        .header-eyebrow {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #000000;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .header-eyebrow::before,
+        .header-eyebrow::after {
+            content: '';
+            height: 1px;
+            width: 40px;
+            background: var(--sage-light);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 46px);
+            font-weight: 700;
+            color: #000000;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        h1 span {
+            color: #2c4a8f;
+            font-style: italic;
+        }
+
+        .presenter-tag {
+            font-size: 16px;
+            color: var(--text-muted);
+            text-align: right;
+            margin-bottom: 4px;
+        }
+
+        .presenter-tag .avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sage), var(--earth-mid));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Hero banner */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--sage) 0%, #4565ae 50%, var(--earth-mid) 100%);
+            border-radius: 20px;
+            padding: 44px 40px;
+            margin: 0 auto 52px;
+            max-width: 66.667%;
+            position: relative;
+            overflow: hidden;
+            animation: fadeUp 0.8s 0.2s ease both;
+        }
+
+        .hero-banner::before {
+            content: '🏠';
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            font-size: 120px;
+            opacity: 0.12;
+            transform: rotate(20deg);
+        }
+
+        .hero-banner::after {
+            content: '♻️';
+            position: absolute;
+            right: 90px;
+            bottom: -20px;
+            font-size: 100px;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+        }
+
+        .hero-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .hero-banner p {
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            max-width: 420px;
+            line-height: 1.6;
+        }
+
+        .agenda-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .chip {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 100px;
+            padding: 4px 14px;
+            font-size: 12px;
+            color: white;
+            backdrop-filter: blur(4px);
+        }
+
+        .playback-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 12px 20px;
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--divider);
+        }
+
+        .play-all-btn {
+            background: var(--sage);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .play-all-btn:hover { background: #4565ae; }
+
+        .pause-btn {
+            background: #d4a043;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .pause-btn:hover { background: #b8892e; }
+
+        .stop-btn {
+            background: #c0392b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .stop-btn:hover { background: #a93226; }
+
+        .speed-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-left: auto;
+        }
+
+        .speed-select {
+            font-size: 13px;
+            padding: 4px 8px;
+            border: 1px solid var(--divider);
+            border-radius: 6px;
+            background: var(--cream);
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .now-playing {
+            background: linear-gradient(135deg, var(--sage) 0%, #4565ae 100%);
+            border-radius: 12px;
+            padding: 14px 20px;
+            margin-bottom: 20px;
+            display: none;
+            animation: fadeUp 0.3s ease both;
+        }
+
+        .now-playing.active { display: block; }
+
+        .now-playing-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 6px;
+        }
+
+        .now-playing-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: white;
+            line-height: 1.5;
+        }
+
+        .script-row.active {
+            background: #e3ebf8;
+            border-left: 4px solid var(--sage);
+            box-shadow: 0 0 12px rgba(85, 115, 184, 0.25);
+        }
+
+        .word-wrap {
+            display: inline;
+        }
+
+        .script-text .word {
+            display: inline-block;
+            position: relative;
+            transition: color 0.15s;
+            cursor: pointer;
+        }
+
+        .script-text .word:hover {
+            background: rgba(85, 115, 184, 0.15);
+            border-radius: 4px;
+        }
+
+        .script-text .word.speaking {
+            color: #c0392b;
+            font-weight: 700;
+        }
+
+        .script-text .word.active {
+            color: #2c4a8f;
+            font-weight: 700;
+        }
+
+        .script-text .word.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #f1c40f;
+            border-radius: 2px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 20px;
+            background: var(--white);
+            border-radius: 14px 14px 0 0;
+            border: 1px solid var(--divider);
+            border-bottom: 2px solid var(--sage-light);
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .section-header:hover { background: var(--sage-pale); }
+
+        .section-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--sage-pale), var(--earth-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .section-title-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            color: var(--earth);
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .section-badge {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--sage);
+            background: var(--sage-pale);
+            border: 1px solid var(--sage-light);
+            border-radius: 100px;
+            padding: 2px 10px;
+        }
+
+        .section-toggle {
+            font-size: 18px;
+            color: var(--text-muted);
+            transition: transform 0.3s;
+        }
+
+        .section-body {
+            background: var(--white);
+            border: 1px solid var(--divider);
+            border-top: none;
+            border-radius: 0 0 14px 14px;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            max-height: 9999px;
+        }
+
+        .section-body.collapsed {
+            max-height: 0;
+        }
+
+        .section-toggle.rotated { transform: rotate(180deg); }
+
+        /* Script rows */
+        .script-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--divider);
+            transition: background 0.15s;
+        }
+
+        .script-row:last-child { border-bottom: none; }
+        .script-row:hover { background: var(--sage-pale); }
+
+        /* Speaker button */
+        .speaker-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 13px;
+            font-family: 'Playfair Display', serif;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .speaker-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: white;
+            opacity: 0;
+            transition: opacity 0.15s;
+        }
+
+        .speaker-btn:hover::after { opacity: 0.15; }
+        .speaker-btn:active { transform: scale(0.93); }
+
+        .speaker-btn.role-A { background: linear-gradient(135deg, #5573b8, #4565ae); color: white; }
+        .speaker-btn.role-B { background: linear-gradient(135deg, #8c7355, #6b5540); color: white; }
+        .speaker-btn.role-C { background: linear-gradient(135deg, #6a8caf, #4a6c8f); color: white; }
+        .speaker-btn.role-D { background: linear-gradient(135deg, #b07a5a, #4a5876); color: white; }
+        .speaker-btn.role-ALL {
+            background: linear-gradient(135deg, var(--earth-light), var(--sage-light));
+            color: var(--earth);
+            font-size: 10px;
+            letter-spacing: 0.05em;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .script-content {
+            flex: 1;
+            padding-top: 10px;
+        }
+
+        .role-label {
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-right: 6px;
+        }
+
+        .role-label.A { color: #4565ae; }
+        .role-label.B { color: #8c7355; }
+        .role-label.C { color: #4a6c8f; }
+        .role-label.D { color: #4a5876; }
+        .role-label.ALL { color: var(--earth-mid); }
+
+        .script-text {
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--text);
+        }
+
+        /* Audio status indicator */
+        .audio-pulse {
+            display: none;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--sage);
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            animation: pulse 1s infinite;
+        }
+
+        .speaker-btn.playing .audio-pulse { display: block; }
+
+        /* Closing summary card */
+        .summary-card {
+            background: linear-gradient(135deg, var(--earth) 0%, #14264a 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .summary-card::before {
+            content: '🌿';
+            position: absolute;
+            right: 20px;
+            bottom: -10px;
+            font-size: 90px;
+            opacity: 0.15;
+        }
+
+        .summary-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--earth-light);
+        }
+
+        .summary-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 500px) { .summary-items { grid-template-columns: 1fr; } }
+
+        .summary-item {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .summary-item strong {
+            display: block;
+            color: var(--sage-light);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        /* Animations */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.6; }
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+
+        /* ---- Task overview (EAII Practice 2 tab) ---- */
+        .task-section { margin-bottom: 28px; }
+        .task-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--earth);
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .task-section p { color: var(--text); font-size: 15px; line-height: 1.7; }
+        .task-section ul, .task-section ol { padding-left: 22px; margin: 10px 0; }
+        .task-section li { margin-bottom: 8px; line-height: 1.6; }
+
+        .task-box {
+            background: var(--sage-pale);
+            border-left: 4px solid var(--sage);
+            padding: 14px 18px;
+            margin: 12px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .task-box p { margin-bottom: 4px; }
+
+        .meeting-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: var(--sage-pale);
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid var(--sage-light);
+            margin: 12px 0;
+            color: var(--earth);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .meeting-meta .m-university {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--earth);
+        }
+
+        .task-note {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .cn-toggle-wrap { text-align: right; margin-bottom: 12px; }
+        .cn-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--earth);
+            user-select: none;
+        }
+        .cn-toggle input {
+            width: 40px;
+            height: 22px;
+            appearance: none;
+            background: var(--sage-light);
+            border-radius: 11px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+        .cn-toggle input::before {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: white;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.2s;
+        }
+        .cn-toggle input:checked { background: var(--sage); }
+        .cn-toggle input:checked::before { transform: translateX(18px); }
+
+        .cn-translation {
+            display: none;
+            margin-top: 6px;
+            padding: 8px 12px;
+            background: #eef4ff;
+            border-left: 3px solid var(--earth-light);
+            border-radius: 0 6px 6px 0;
+            font-size: 14px;
+            color: #1f3865;
+            line-height: 1.6;
+        }
+        .cn-active .cn-translation { display: block; }
+
+        /* Banner */
+        .banner {
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Video tab */
+        .video-wrap {
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .video-wrap video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .video-placeholder {
+            background: var(--white);
+            border-radius: 16px;
+            border: 2px dashed var(--divider);
+            padding: 60px 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+        .video-placeholder .vp-icon { font-size: 48px; margin-bottom: 12px; }
+        .video-placeholder .vp-title { font-size: 18px; font-weight: 600; color: var(--earth); margin-bottom: 6px; }
+
+        /* ---- Possible Response: dialogue table with communicative functions ---- */
+        .dialogue-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 14px; margin: 6px 0 24px; }
+        .dialogue-table th {
+            background: #1f3865; color: #fff; padding: 10px 12px; text-align: left;
+            font-size: 13px; font-weight: 600;
+        }
+        .dialogue-table td { border: 1px solid var(--divider); padding: 10px 12px; vertical-align: top; }
+        .dialogue-table tbody tr:nth-child(even) td { background: #f5f8fd; }
+        .dialogue-table tr.script-row { display: table-row; gap: normal; padding: 0; border-bottom: none; }
+        .dialogue-table tr.script-row:last-child { border-bottom: none; }
+        .dialogue-table tr.script-row:hover { background: #f0f5fc; }
+        .dialogue-table tr.script-row.active { background: #e3ebf8; box-shadow: inset 4px 0 0 var(--sage); }
+        .c-stu { width: 28px; min-width: 28px; padding: 6px 1px; text-align: center; }
+        .c-script { width: 34.7%; line-height: 1.9; }
+        .c-fn { width: calc(65.3% - 28px); font-size: 12px; line-height: 1.6; }
+        .fn-label { font-style: italic; color: #4a6c8f; font-weight: 600; margin-bottom: 6px; white-space: pre-line; }
+        .muted { color: #aab7cc; }
+
+        .dialogue-table mark.lang-hl { cursor: default; }
+        .explain-marker {
+            display: inline-flex; align-items: center; justify-content: center; vertical-align: super;
+            width: 20px; height: 20px; margin: 0 2px 0 5px; padding: 0; border-radius: 50%;
+            border: 1px solid #52675a; background: #fff; color: #1f3865; font: 700 11px/1 sans-serif;
+            cursor: help;
+        }
+        .explain-marker:hover, .explain-marker:focus-visible { background: #1f3865; color: #fff; outline: 2px solid #a3b18a; outline-offset: 2px; }
+        .language-tooltip {
+            position: fixed; z-index: 1000; max-width: min(360px, calc(100vw - 24px));
+            padding: 11px 14px; border-radius: 12px; background: #1f3865; color: #fff;
+            font: 500 13px/1.5 'DM Sans', sans-serif; box-shadow: 0 8px 24px rgba(0,0,0,0.24);
+            pointer-events: none;
+        }
+        .language-tooltip[hidden] { display: none; }
+
+        .lang-hl {
+            cursor: default; padding: 2px 4px; border-radius: 5px; font-weight: 600;
+            text-decoration: none;
+        }
+        .lang-hl.m { background: #dbeafe; color: #1e40af; border: 2px solid #3b82f6; }
+        .lang-hl.c { background: #fef3c7; color: #92400e; border: 2px solid #f59e0b; }
+        .lang-hl.h { background: #dcfce7; color: #166534; border: 2px solid #22c55e; }
+        .lang-hl.g { background: #f3e8ff; color: #6b21a8; border: 2px solid #a855f7; }
+        .lang-hl.r { background: #ffedd5; color: #9a3412; border: 2px solid #f97316; }
+        .lang-hl.n { background: #ccfbf1; color: #115e59; border: 2px solid #14b8a6; }
+        .lang-hl.a { background: #ecfccb; color: #3f6212; border: 2px solid #84cc16; }
+        .lang-hl.e { background: #ffe4e6; color: #9f1239; border: 2px solid #f43f5e; }
+        .lang-hl.p { background: #fce7f3; color: #9d174d; border: 2px solid #ec4899; }
+        .lang-hl.y { background: #fef08a; color: #854d0e; border: 2px solid #facc15; }
+        .lang-hl.prep { background: #f5e6d3; color: #7c4a1e; border: 2px solid #c8956c; }
+        .lang-hl.resp { background: #e5e5e5; color: #525252; border: 2px solid #a3a3a3; }
+        .lang-hl.ex { background: #cffafe; color: #155e75; border: 2px solid #06b6d4; }
+        .lang-hl.pref { background: #fef3c7; color: #78350f; border: 2px solid #d97706; }
+        .lang-hl.lex { background: #f1f5f9; color: #334155; border: 2px solid #94a3b8; }
+        .lang-hl.coll { background: #ccfbf1; color: #115e59; border: 2px solid #14b8a6; }
+        .lang-hl.form { background: #e0e7ff; color: #3730a3; border: 2px solid #818cf8; }
+        .lang-hl .lang-hl { padding: 1px 4px; margin: 0 1px; box-shadow: 0 0 0 1.5px #fff; }
+        @media (max-width: 640px) { .explain-marker { width: 24px; height: 24px; margin-left: 6px; font-size: 12px; } }
+        .exp-plain { font-size: 12px; color: #64748b; font-style: italic; display: inline-block; margin: 2px 4px 2px 0; }
+
+        .exp-item {
+            display: inline-block; border-radius: 10px; padding: 2px 8px; font-size: 11px; font-weight: 600; margin: 2px;
+        }
+        .exp-item.m { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+        .exp-item.c { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+        .exp-item.h { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .exp-item.g { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .exp-item.r { background: #ffedd5; color: #9a3412; border: 1px solid #fdba74; }
+        .exp-item.n { background: #ccfbf1; color: #115e59; border: 1px solid #5eead4; }
+        .exp-item.a { background: #ecfccb; color: #3f6212; border: 1px solid #bef264; }
+        .exp-item.e { background: #ffe4e6; color: #9f1239; border: 1px solid #fda4af; }
+        .exp-item.p { background: #fce7f3; color: #9d174d; border: 1px solid #f9a8d4; }
+        .exp-item.prep { background: #f5e6d3; color: #7c4a1e; border: 1px solid #c8956c; }
+        .exp-item.resp { background: #e5e5e5; color: #525252; border: 1px solid #d4d4d4; }
+        .exp-item.ex { background: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .exp-item.pref { background: #fef3c7; color: #78350f; border: 1px solid #fbbf24; }
+        .exp-item.lex { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+        .exp-item.coll { background: #ccfbf1; color: #115e59; border: 1px solid #5eead4; }
+        .exp-item.form { background: #e0e7ff; color: #3730a3; border: 1px solid #a5b4fc; }
+
+        .legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; align-items: center; }
+        .legend .lbl { font-size: 13px; font-weight: 700; color: var(--earth); margin-right: 4px; }
+        .legend .chip { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; }
+        .tab2-guide {
+            margin: 18px 0 12px; padding: 12px 16px; border-left: 4px solid var(--sage);
+            border-radius: 8px; background: #f0f5fc; color: var(--earth); font-size: 13px; line-height: 1.65;
+        }
+        .tab2-guide strong { color: #1f3865; }
+        .chip.m { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+        .chip.c { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+        .chip.h { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .chip.g { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .chip.r { background: #ffedd5; color: #9a3412; border: 1px solid #fdba74; }
+        .chip.n { background: #ccfbf1; color: #115e59; border: 1px solid #5eead4; }
+        .chip.a { background: #ecfccb; color: #3f6212; border: 1px solid #bef264; }
+        .chip.e { background: #ffe4e6; color: #9f1239; border: 1px solid #fda4af; }
+        .chip.p { background: #fce7f3; color: #9d174d; border: 1px solid #f9a8d4; }
+        .chip.ex { background: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .chip.pref { background: #fef3c7; color: #78350f; border: 1px solid #fbbf24; }
+        .chip.lex { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+        .chip.coll { background: #ccfbf1; color: #115e59; border: 1px solid #5eead4; }
+        .chip.form { background: #e0e7ff; color: #3730a3; border: 1px solid #a5b4fc; }
+        .chip.resp { background: #e5e5e5; color: #525252; border: 1px solid #d4d4d4; }
+
+        .dialogue-table .script-text { font-size: 15px; }
+        .dialogue-table .c-script .cn-translation { font-size: 13px; }
+        @media (max-width: 820px) {
+            .dlg { overflow: visible; }
+            .dlg .dialogue-table { display: block; width: 100%; min-width: 0; table-layout: auto; }
+            .dialogue-table thead {
+                position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+                overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+            }
+            .dialogue-table tbody { display: block; width: 100%; }
+            .dialogue-table tr.script-row {
+                display: grid; grid-template-columns: 48px minmax(0, 1fr);
+                grid-template-areas: "speaker script" "function function";
+                width: 100%; margin: 0 0 12px; padding: 0; gap: 0;
+                border: 1px solid var(--divider); border-radius: 12px; overflow: hidden;
+                background: #fff; box-shadow: 0 2px 8px rgba(31, 56, 101, 0.06);
+            }
+            .dialogue-table tr.script-row:hover { background: #fff; }
+            .dialogue-table tr.script-row.active { background: #e3ebf8; box-shadow: inset 4px 0 0 var(--sage); }
+            .dialogue-table td { display: block; min-width: 0; border: 0; padding: 10px 12px; }
+            .dialogue-table .c-stu {
+                grid-area: speaker; width: auto; min-width: 0; padding: 12px 2px 8px 8px;
+                text-align: center; align-self: start;
+            }
+            .dialogue-table .c-stu::before,
+            .dialogue-table .c-script::before,
+            .dialogue-table .c-fn::before {
+                display: block; margin: 0 0 5px; color: #607267; font: 700 10px/1.3 'DM Sans', sans-serif;
+                letter-spacing: .04em; text-transform: uppercase;
+            }
+            .dialogue-table .c-stu::before { content: "Speaker"; }
+            .dialogue-table .c-script { grid-area: script; width: auto; padding: 12px 12px 10px 8px; line-height: 1.75; overflow-wrap: anywhere; }
+            .dialogue-table .c-script::before { content: "Conversation"; }
+            .dialogue-table .c-script .script-text { font-size: 14px; }
+            .dialogue-table .c-fn {
+                grid-area: function; width: auto; padding: 9px 12px 11px;
+                border-top: 1px solid var(--divider); background: #f5f8fd; font-size: 12px;
+            }
+            .dialogue-table tbody tr:nth-child(even) .c-fn { background: #f2f6ef; }
+            .dialogue-table .c-fn::before { content: "Communicative function"; }
+            .dialogue-table .c-fn .fn-label { margin: 0; }
+            .dialogue-table .c-script .cn-translation { font-size: 12px; }
+        }
+
+        /* ---- Supplementary: language features & communicative functions ---- */
+        .supp-notes { margin-top: 6px; }
+        .note-block {
+            background: var(--white);
+            border: 1px solid var(--divider);
+            border-left: 4px solid var(--sage);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin: 12px 0;
+            line-height: 1.7;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .supp-notes code {
+            background: var(--sage-pale);
+            border: 1px solid var(--sage-light);
+            border-radius: 6px;
+            padding: 1px 6px;
+            font-size: 13px;
+            color: var(--earth);
+        }
+        .supp-notes .cross { color: #c0392b; font-weight: 700; }
+        .supp-notes .tick { color: #1a7a3d; font-weight: 700; }
+        .cf-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 6px;
+        }
+        @media (max-width: 640px) { .cf-grid { grid-template-columns: 1fr; } }
+        .cf-card {
+            background: var(--white);
+            border: 1px solid var(--divider);
+            border-radius: 14px;
+            padding: 16px 18px;
+        }
+        .cf-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            color: var(--earth);
+            margin-bottom: 8px;
+        }
+        .cf-card .tag {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+        .cf-card ul { padding-left: 18px; margin: 0; }
+        .cf-card li { margin-bottom: 6px; line-height: 1.55; font-size: 14px; }
+        .cf-card p { font-size: 14px; line-height: 1.6; }
+        .cf-wide { grid-column: 1 / -1; }
+        .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 18px; font-size: 14px; }
+        @media (max-width: 640px) { .modal-grid { grid-template-columns: 1fr; } }
+        .cf-note { margin-top: 8px; font-size: 13px; color: var(--text-muted); font-style: italic; }
+        .form-row { display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.55; }
+        .hi-bad {
+            background: #ffedd5; color: #9a3412; text-decoration: line-through;
+            border-bottom: 2px solid #f97316; border-radius: 3px; padding: 0 3px;
+        }
+        .hi-good {
+            background: #dcfce7; color: #166534;
+            border-bottom: 2px solid #22c55e; border-radius: 3px; padding: 0 3px;
+        }
+
+        /* Asking for response highlight card */
+        .fn-highlight {
+            background: var(--white);
+            border: 1px solid var(--divider);
+            border-left: 4px solid #a3a3a3;
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .fn-highlight .chip.resp {
+            flex-shrink: 0;
+        }
+        .fn-highlight-text {
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .fn-highlight-text strong {
+            color: var(--earth);
+        }
+
+        /* ====================================================================
+           RESPONSIVE LAYER  (phone / tablet / laptop / large desktop)
+           ==================================================================== */
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        button, select, .speaker-btn, .tab-btn, .explain-marker { touch-action: manipulation; }
+        img, video { max-width: 100%; }
+        h1, .script-text, .fn-label { overflow-wrap: anywhere; }
+
+        /* ---------- Dialogue table column widths (desktop / laptop / wide tablet) ----------
+           Fixed table layout reads widths from the header row, so they are set on the <th>s.
+           Narrow speaker column | wide conversation column | medium functions column */
+        .dialogue-table th:nth-child(1), .c-stu    { width: 64px; min-width: 64px; }
+        .dialogue-table th:nth-child(2), .c-script { width: 56%; }
+        .dialogue-table th:nth-child(3), .c-fn     { width: auto; }
+        .dialogue-table td.c-script { padding-right: 16px; }
+
+        /* ---------- Laptop / desktop: use the extra width for the 3-column table ---------- */
+        @media (min-width: 1100px) { .slide-inner { max-width: 980px; } }
+        @media (min-width: 1500px) { .slide-inner { max-width: 1100px; } }
+
+        /* ---------- Tablet & below (<= 900px) ---------- */
+        @media (max-width: 900px) {
+            .slide-inner { padding: 36px 18px 40px; }
+            .hero-banner { max-width: 100%; padding: 32px 28px; }
+            .playback-controls { flex-wrap: wrap; }
+
+            /* Card layout (defined above): roomier speaker column + finger-size buttons */
+            .dialogue-table tr.script-row { grid-template-columns: 58px minmax(0, 1fr); }
+            .dialogue-table .c-stu { padding: 12px 2px 8px 10px; }
+            .dialogue-table .speaker-btn { width: 42px; height: 42px; }
+
+            /* Keep the line being played visible while the page scrolls */
+            .now-playing.active {
+                position: sticky;
+                top: calc(env(safe-area-inset-top, 0px) + 8px);
+                z-index: 50;
+                max-height: 30vh;
+                overflow-y: auto;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+            }
+            .now-playing-text { font-size: 16px; }
+        }
+
+        /* ---------- Phones (<= 640px) ---------- */
+        @media (max-width: 640px) {
+            .slide-inner { padding: 16px 12px 32px; }
+
+            .tab-bar {
+                gap: 4px; margin-bottom: 20px;
+                overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+            }
+            .tab-bar::-webkit-scrollbar { display: none; }
+            .tab-btn { flex: 1 0 auto; padding: 12px 14px; font-size: 13px; min-height: 44px; white-space: nowrap; }
+
+            .banner { border-radius: 14px; margin-bottom: 18px; }
+            .header { margin-bottom: 28px; }
+            .header-eyebrow { font-size: 11px; letter-spacing: 0.12em; gap: 8px; line-height: 1.5; margin-bottom: 12px; }
+            .header-eyebrow::before, .header-eyebrow::after { width: 18px; flex: 0 0 18px; }
+            .presenter-tag { font-size: 14px; }
+            .cn-toggle-wrap { text-align: center; margin: 8px 0 14px; }
+            .cn-toggle { min-height: 44px; font-size: 15px; }
+
+            .hero-banner { padding: 24px 18px; border-radius: 16px; margin-bottom: 26px; }
+            .hero-banner h2 { font-size: 22px; }
+            .hero-banner p { font-size: 14px; }
+            .agenda-chips { gap: 6px; margin-top: 16px; }
+            .agenda-chips .chip { font-size: 11.5px; padding: 4px 11px; }
+
+            .tab2-guide { padding: 10px 12px; font-size: 12.5px; }
+            .legend { gap: 6px; }
+
+            /* Play All / Pause / Stop in one row, Speed underneath */
+            .playback-controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 10px 12px; }
+            .playback-controls button { min-height: 44px; padding: 8px 6px; font-size: 13px; }
+            .speed-label { grid-column: 1 / 2; margin-left: 0; align-self: center; }
+            .speed-select { grid-column: 2 / 4; min-height: 40px; font-size: 15px; }
+
+            .now-playing { padding: 12px 14px; }
+
+            .task-section h2 { font-size: 18px; }
+            .task-box { padding: 12px 14px; }
+            .meeting-meta { padding: 12px 14px; }
+            .meeting-meta .m-university { font-size: 20px; }
+
+            .note-block, .cf-card { padding: 12px 14px; }
+            .summary-card { padding: 22px 18px; margin-top: 28px; border-radius: 16px; }
+            .summary-card h3 { font-size: 20px; margin-bottom: 14px; }
+
+            /* Videos: one per row instead of a 2 x 2 grid */
+            #tab-video > div:first-child { grid-template-columns: 1fr !important; gap: 14px !important; }
+        }
+
+        /* ---------- Very small phones ---------- */
+        @media (max-width: 380px) {
+            .tab-btn { padding: 10px 10px; font-size: 12px; }
+            .slide-inner { padding-left: 8px; padding-right: 8px; }
+            .dialogue-table .c-script .script-text { font-size: 13.5px; }
+        }
+
+        /* ---------- Touch screens: easier-to-hit explanation markers ---------- */
+        @media (hover: none) {
+            .explain-marker { width: 26px; height: 26px; margin: 0 3px 0 6px; font-size: 12px; }
+            .script-text .word { padding: 0 1px; }
+        }
+
+        /* ---------- Reduced motion ---------- */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+        }
+
+        /* ---------- Print ---------- */
+        @media print {
+            body::before, body::after, .tab-bar, .playback-controls, .now-playing, .speaker-btn, .cn-toggle-wrap { display: none !important; }
+            .tab-content { display: block !important; }
+            .dialogue-table tr, .cf-card, .note-block { break-inside: avoid; }
+        }
+    
+/* ===== Deck layer ===== */
+html, body { height: 100%; }
+body { overflow: hidden; }
+.deck { position: fixed; inset: 0; z-index: 1; display: flex; flex-direction: column; }
+.slides { position: relative; flex: 1; min-height: 0; }
+.slide { position: absolute; inset: 0; overflow-y: auto; display: none; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+.slide.active { display: flex; flex-direction: column; animation: slideIn .35s ease both; }
+@keyframes slideIn { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+.slide-inner { padding-top: 26px; padding-bottom: 36px; }
+.header { margin-bottom: 28px; }
+.banner { margin-bottom: 20px; }
+.hero-banner { max-width: 100%; margin-bottom: 20px; }
+.slide-head { text-align: center; margin-bottom: 14px; }
+.slide-head .eyebrow { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #000; font-weight: 600; }
+.slide-head h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3.4vw, 32px); color: #000; margin: 4px 0; }
+.slide-head p { color: var(--text-muted); font-size: 14px; }
+
+.progress { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: rgba(0,0,0,.08); z-index: 5; }
+.progress i { display: block; height: 100%; width: 0; background: #2c4a8f; transition: width .3s; }
+
+/* Toolbar */
+.toolbar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 16px;
+  padding: 8px 14px calc(8px + env(safe-area-inset-bottom, 0px)); background: rgba(255,255,255,.96);
+  border-top: 1px solid var(--divider); box-shadow: 0 -4px 16px rgba(0,0,0,.08);
+}
+.toolbar .playback-controls { margin: 0; padding: 0; border: 0; background: none; flex-wrap: wrap; gap: 8px; }
+.toolbar .speed-label { margin-left: 0; }
+.toolbar .cn-toggle { white-space: nowrap; }
+.nav { display: flex; align-items: center; gap: 6px; }
+.nav-btn { width: 38px; height: 34px; border: none; border-radius: 8px; background: #1f3865; color: #fff; font-size: 14px; cursor: pointer; }
+.nav-btn:hover { background: #3a5fb0; }
+.nav-btn:disabled { opacity: .35; cursor: default; }
+#jump { max-width: 190px; }
+.deck .now-playing { margin: 0; border-radius: 0; padding: 8px 18px; }
+.deck .now-playing-text { font-size: 16px; }
+.deck .now-playing-label { margin-bottom: 2px; }
+
+/* Words: hoverable everywhere */
+.slide .word { cursor: pointer; transition: color .15s, background .15s; }
+.slide .word:hover { background: rgba(85,115,184,.18); border-radius: 4px; }
+.slide .word.speaking { color: #c0392b; font-weight: 700; }
+.slide .word.active { color: #2c4a8f; font-weight: 700; }
+.slide .script-text .word { display: inline-block; }
+.dlg { overflow-x: auto; }
+
+/* Selected target line */
+.dialogue-table tr.script-row.target > td:first-child { box-shadow: inset 4px 0 0 #2c4a8f; }
+.dialogue-table tr.script-row { cursor: pointer; }
+
+@media (max-width: 820px) {
+  .dlg { overflow: visible; }
+  .dlg .dialogue-table { display: block; width: 100%; min-width: 0; table-layout: auto; }
+}
+
+/* Video slide */
+.video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.vcap { padding: 8px 12px; background: var(--sage-pale); text-align: center; font-size: 14px; font-weight: 600; color: var(--earth); }
+.vnote { color: var(--text-muted); font-size: 14px; margin-top: 12px; text-align: center; }
+@media (max-width: 640px) { .video-grid { grid-template-columns: 1fr; } }
+
+/* Toast */
+.toast { position: fixed; left: 50%; bottom: 120px; transform: translateX(-50%); background: #1f3865; color: #fff; padding: 9px 16px; border-radius: 10px; font-size: 13px; z-index: 1200; max-width: 90vw; }
+.toast[hidden] { display: none; }
+
+/* ===== Microphone / pronunciation panel ===== */
+.mic-panel {
+  position: sticky; bottom: 0; z-index: 4; margin-top: 22px; padding: 14px 16px; border-radius: 16px;
+  background: #fff; border: 1px solid var(--divider); box-shadow: 0 -2px 18px rgba(0,0,0,.12);
+}
+.mic-top { display: flex; align-items: center; gap: 14px; }
+.mic-btn {
+  flex: none; width: 54px; height: 54px; border-radius: 50%; border: none; cursor: pointer; font-size: 24px;
+  background: linear-gradient(135deg, #5573b8, #2c4a8f); color: #fff; box-shadow: 0 3px 10px rgba(0,0,0,.2); transition: transform .15s;
+}
+.mic-btn:hover { transform: scale(1.06); }
+.mic-btn.listening { background: linear-gradient(135deg, #e0574a, #c0392b); animation: micPulse 1.1s infinite; }
+@keyframes micPulse { 0% { box-shadow: 0 0 0 0 rgba(192,57,43,.5); } 70% { box-shadow: 0 0 0 16px rgba(192,57,43,0); } 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0); } }
+.mic-target { min-width: 0; }
+.mic-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+.mic-target-text { font-family: 'Playfair Display', serif; font-size: 17px; line-height: 1.45; color: var(--earth); }
+.mic-status { margin-top: 8px; font-size: 13px; color: var(--text-muted); min-height: 18px; }
+.mic-result { margin-top: 10px; border-top: 1px dashed var(--divider); padding-top: 10px; }
+.mic-result[hidden] { display: none; }
+.score-row { display: flex; align-items: center; gap: 14px; }
+.score-ring {
+  flex: none; width: 66px; height: 66px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 18px; color: #1f3865;
+  background: conic-gradient(var(--rc, #2c4a8f) calc(var(--pct, 0) * 1%), #e6e2d8 0);
+  position: relative;
+}
+.score-ring::before { content: ''; position: absolute; inset: 7px; border-radius: 50%; background: #fff; }
+.score-ring span { position: relative; }
+.score-meta strong { display: block; font-size: 16px; color: var(--earth); }
+.score-meta small { display: block; color: var(--text-muted); font-size: 12.5px; line-height: 1.5; }
+.word-feedback { margin: 10px 0 4px; line-height: 2; font-size: 17px; }
+.word-feedback .fb { padding: 1px 7px; margin: 0 3px 3px 0; border-radius: 8px; display: inline-block; }
+.fb-ok { background: #d9f0dc; color: #1e6b34; }
+.fb-close { background: #fdf0c8; color: #8a6a00; }
+.fb-wrong { background: #fbdcd8; color: #a3281c; }
+.fb-missed { background: #eee; color: #777; text-decoration: line-through; }
+.fb-extra { background: #e8e4f5; color: #55468a; font-size: 14px; }
+.mic-tips { margin: 4px 0 0 18px; font-size: 13px; color: var(--text); line-height: 1.6; }
+.mic-note { margin-top: 6px; font-size: 11.5px; color: var(--text-muted); }
+@media (max-width: 640px) {
+  .toolbar { gap: 6px 10px; padding-left: 8px; padding-right: 8px; }
+  .play-all-btn, .pause-btn, .stop-btn { padding: 7px 10px; font-size: 13px; }
+  #jump { max-width: 120px; }
+  .mic-btn { width: 48px; height: 48px; font-size: 21px; }
+  .mic-target-text { font-size: 15px; }
+}
+
+/* Communicative function row above each line */
+.dialogue-table tr.fn-row td.c-fnrow { padding: 9px 14px 3px; background: #eef4f8; border-top: 2px solid #c9d8e4; font-size: 13px; line-height: 1.5; }
+.dialogue-table tr.fn-row .fn-label { margin: 0; }
+.dialogue-table tr.fn-row + tr.script-row td { border-top: 0; }
+@media (max-width: 820px) {
+  .dialogue-table tr.fn-row { display: block; margin: 0; }
+  .dialogue-table tr.fn-row td.c-fnrow { display: block; border: 1px solid var(--divider); border-bottom: 0; border-radius: 12px 12px 0 0; }
+  .dialogue-table tr.fn-row + tr.script-row { border-radius: 0 0 12px 12px; border-top: 0; grid-template-areas: "speaker script"; }
+}
+@media (min-width: 821px) {
+  .dialogue-table th:first-child, .dialogue-table td.c-stu { width: 84px; text-align: center; }
+  .dialogue-table td.c-script { width: auto; }
+}
+@media (min-width: 821px) {
+  .dialogue-table th:nth-child(2), .dialogue-table td.c-script { width: auto; }
+}
+
+.video-single { max-width: 900px; margin: 0 auto; }
+.vcap { font-size: 16px; padding: 10px 14px; }
+
+/* ===== Responsive scaling: content grows with the window, short slides are centred ===== */
+.deck { --z: 1; }
+.slide-inner { zoom: var(--z); width: 100%; margin: auto; flex: none; padding-top: 20px; padding-bottom: 28px; }
+.slide-inner .task-section, .slide-inner .summary-card { margin-left: auto; margin-right: auto; }
+
+.toolbar { zoom: calc(1 + (var(--z) - 1) * 0.5); }
+.deck .now-playing { zoom: calc(1 + (var(--z) - 1) * 0.5); }
+
+.user-guide { font-size: 14px; }
+.user-guide > strong { display: block; font-size: 16px; margin-bottom: 6px; }
+.user-guide ul { margin: 0 0 0 20px; padding: 0; }
+.user-guide li { margin: 4px 0; line-height: 1.6; }
+
+.user-guide h2 { font-family: 'Playfair Display', serif; font-size: 26px; color: #1f3865; margin: 0 0 10px; text-align: center; }
+.user-guide { font-size: 16px; max-width: 900px; margin-left: auto; margin-right: auto; }
+.user-guide li { margin: 7px 0; }
+
+/* ===== Pop-up microphone window ===== */
+.mic-fab {
+  position: absolute; right: 18px; bottom: 18px; z-index: 6; width: 60px; height: 60px; border-radius: 50%; border: none; cursor: pointer;
+  font-size: 28px; color: #fff; background: linear-gradient(135deg, #5573b8, #2c4a8f); box-shadow: 0 6px 18px rgba(0,0,0,.28);
+  transition: transform .15s; zoom: calc(1 + (var(--z) - 1) * 0.5);
+}
+.mic-fab:hover { transform: scale(1.08); }
+.mic-fab[hidden] { display: none; }
+.mic-modal { position: fixed; inset: 0; z-index: 1100; display: flex; align-items: center; justify-content: center; padding: 14px; }
+.mic-modal[hidden] { display: none; }
+.mic-backdrop { position: absolute; inset: 0; background: rgba(20,30,55,.5); backdrop-filter: blur(2px); }
+.mic-panel {
+  position: relative; zoom: calc(1 + (var(--z) - 1) * 0.6); width: min(100%, 680px); max-height: 92vh; overflow-y: auto;
+  margin: 0; padding: 18px 20px; border-radius: 18px; background: #fff; border: 1px solid var(--divider);
+  box-shadow: 0 18px 50px rgba(0,0,0,.35); animation: popIn .22s ease both;
+}
+@keyframes popIn { from { opacity: 0; transform: translateY(14px) scale(.97); } to { opacity: 1; transform: none; } }
+.mic-close { position: absolute; top: 8px; right: 12px; border: none; background: none; font-size: 30px; line-height: 1; color: #6b6b6b; cursor: pointer; }
+.mic-close:hover { color: #c0392b; }
+.mic-lines { display: flex; align-items: center; gap: 8px; margin: 0 34px 12px 0; flex-wrap: wrap; }
+.mic-step { width: 32px; height: 30px; border: none; border-radius: 8px; background: #1f3865; color: #fff; font-size: 20px; line-height: 1; cursor: pointer; }
+.mic-step:disabled { opacity: .3; cursor: default; }
+.mic-linecount { font-size: 13px; font-weight: 600; color: var(--earth); }
+.mic-listen { margin-left: auto; border: 1px solid var(--divider); background: var(--sage-pale); color: var(--earth); border-radius: 8px; padding: 5px 12px; font-size: 13px; font-weight: 600; cursor: pointer; }
+.mic-listen:hover { background: #dbe6f7; }
+@media (max-width: 640px) { .mic-fab { width: 54px; height: 54px; font-size: 25px; right: 12px; bottom: 12px; } }
+.video-placeholder { display:flex; align-items:center; justify-content:center; height:320px; border:2px dashed #9db7dd; border-radius:12px; background:#f4f8ff; color:#5573b8; font-size:18px; font-weight:600; }
+
+/* Let horizontal swipes reach the page (vertical scrolling still works) */
+#slides, #slides * { touch-action: pan-y pinch-zoom; }
+.slide { overflow-x: hidden; }
+.header-eyebrow { flex-wrap: wrap; row-gap: 4px; }
+@media (max-width: 700px) {
+  .header-eyebrow { letter-spacing: .12em; font-size: 12px; }
+  .header-eyebrow::before, .header-eyebrow::after { display: none; }
+}
+
+.chip.y { background:#fef08a; color:#854d0e; border:1px solid #facc15; }
+.chip.prep { background:#f5e6d3; color:#7c4a1e; border:1px solid #c8956c; }
+</style>
+
+</head>
+<body>
+<div id="deck" class="deck">
+  <div class="progress"><i id="progressBar"></i></div>
+  <div class="slides" id="slides">
+
+    <section class="slide" data-title="Title" data-practice="Welcome to the Home Essence marketing team meeting.">
+      <div class="slide-inner">
+        <div class="banner"><img src="banner.png" alt="Banner" onerror="this.parentElement.style.display='none'"></div>
+        <div class="header">
+          <div class="header-eyebrow">LAN3107 · Essential Workplace Communication: Effective Oral Interaction</div>
+          <h1>EAII Practice 1:<br><span>Improving the Business of Home Essence</span></h1>
+        </div>
+        <div class="presenter-tag">Presented by Rebecca Tang</div>
+        <div style="text-align:center;margin-top:18px"><button class="play-all-btn" onclick="goTo(1)">Start ▶</button></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="User guide" data-nomic="1">
+      <div class="slide-inner">
+        <div class="tab2-guide user-guide"><h2 data-cn="使用指南">User Guide</h2>
+          <ul>
+            <li data-cn="切换幻灯片：使用 ◀ ▶（或键盘方向键、触屏滑动），也可从菜单选择幻灯片。"><strong>Navigate:</strong> use ◀ ▶ (or the arrow keys, or swipe) to move between slides, or pick a slide from the menu.</li>
+            <li data-cn="收听：选择「播放全部」或喇叭按钮，收听讨论内容。"><strong>Listen:</strong> choose <em>Play All</em> or a speaker button to listen to the discussion.</li>
+            <li data-cn="播放控制：使用「暂停」「停止」及「速度」菜单调整播放。"><strong>Playback:</strong> use <em>Pause</em>, <em>Stop</em> and the <em>Speed</em> menu to adjust playback.</li>
+            <li data-cn="语言注释：将鼠标移到（或轻按）编号标记，查看语言说明。"><strong>Language notes:</strong> hover over (or tap) a numbered marker for its language explanation.</li>
+            <li data-cn="发音：将鼠标移到单词上即可听到发音；触屏设备请轻按单词。"><strong>Pronunciation:</strong> hover over a word to hear it; tap a word on a touch screen.</li>
+            <li data-cn="沟通功能：留意对话中每一句上方显示的沟通功能。"><strong>Functions:</strong> read the communicative function shown above each line of the conversation.</li>
+            <li data-cn="翻译：打开底部工具栏的「中文翻译」开关，即可显示中文翻译（包括本使用指南）。"><strong>Translation:</strong> switch on <em>中文翻译</em> to show the Chinese translations.</li>
+            <li data-cn="口语练习（第6至22张幻灯片）：轻按右下角浮动的 🎤 按钮打开练习窗口，用 ‹ › 选择句子，按窗口内的 🎤 按钮，在提示时允许使用麦克风，然后朗读该句。窗口会显示你的准确度分数及逐词反馈（建议使用 Chrome、Edge 或 Safari）。"><strong>Speaking practice (slides 6–22):</strong> tap the floating 🎤 button (bottom right) to open the practice window, choose a line with ‹ ›, press the 🎤 button inside, allow microphone access when asked, and read the line aloud. Your accuracy score and word-by-word feedback will appear in the window (best in Chrome, Edge or Safari).</li>
+          </ul></div>
+        <div style="text-align:center;margin-top:18px"><button class="play-all-btn" onclick="goTo(2)">Next ▶</button></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Task" data-practice="You are on the marketing team of Home Essence.">
+      <div class="slide-inner">
+        <div class="task-section">
+            <h2 data-cn="任务">Task</h2>
+            <p data-cn="你是Home Essence的营销团队成员，Home Essence是香港一家销售环保家居用品的零售店。你和同事将举行会议，讨论改善业务的计划。你应该：">You are on the marketing team of <strong>Home Essence</strong>, a retail store selling eco-friendly home essentials in Hong Kong. You and your colleagues are going to hold a meeting to discuss plans to improve the business. You should:</p>
+            <ul>
+                <li data-cn="就各议程项目提出你自己的建议">give your own suggestion(s) on the agenda items</li>
+                <li data-cn="解释你提出建议的理由">explain the reason(s) for your suggestion(s)</li>
+                <li data-cn="积极聆听，并透过表达喜好、同意或不同意来回应他人的建议">listen actively and respond to others' suggestions by expressing preferences, agreement, or disagreement</li>
+                <li data-cn="就议程第2至4项达成共识">reach a consensus on agenda items 2–4</li>
+            </ul>
+            <p data-cn="作为一组，你们必须涵盖以下所有议程项目。">As a group, you must cover all the agenda items below.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Meeting details and agenda" data-practice="Monthly discounted products for November.">
+      <div class="slide-inner">
+        <div class="task-section" style="text-align:center;">
+            <h2 data-cn="会议详情">Meeting Details</h2>
+            <div class="meeting-meta">
+                <span class="m-university">Home Essence</span>
+                <span data-cn="营销团队">Marketing Team</span>
+                <span data-cn="10月1日20--年 下午2时30分 会议室">1 October 20-- at 2:30 p.m. in the Meeting Room</span>
+            </div>
+        </div>
+        <div class="task-section">
+            <h2 data-cn="议程">Agenda</h2>
+            <ol style="padding-left:22px;">
+                <li data-cn="会议开始">Opening the meeting</li>
+                <li data-cn="十一月每月折扣产品">Monthly discounted products for November</li>
+                <li>
+                    <span data-cn="吸引顾客的推广策略">Promotion strategies for attracting customers</span>
+                    <div class="task-box">
+                        <p><strong>Possible strategies:</strong></p>
+                        <ul>
+                            <li data-cn="广告">Advertisements</li>
+                            <li data-cn="奖励性优惠（优惠券／礼券）">Incentive-based offers (coupons/vouchers)</li>
+                            <li data-cn="产品植入">Product placement</li>
+                            <li data-cn="与社交媒体网红合作">Collaborations with influencers on social media</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span data-cn="其他事项">AOB</span>
+                    <div class="task-box">
+                        <p><strong>Ways to promote a greener culture in the store:</strong></p>
+                        <ul>
+                            <li data-cn="设置可补充水站">Set up a refillable water station</li>
+                            <li data-cn="使用电子收据">Use of e-receipts</li>
+                        </ul>
+                    </div>
+                </li>
+                <li data-cn="会议结束">Closing the meeting</li>
+            </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Possible response" data-practice="Good morning, everyone. Welcome to today's meeting.">
+      <div class="slide-inner">
+        <div class="hero-banner">
+          <h2>Improving the Business of Home Essence</h2>
+          <p>A group discussion on monthly discounted products, promotion strategies and ways to promote a greener culture in the store.</p>
+          <div class="agenda-chips"><span class="chip">📋 Opening &amp; Agenda</span><span class="chip">🏷️ Discounted Products</span><span class="chip">📣 Promotion Strategies</span><span class="chip">♻️ Greener Store (AOB)</span><span class="chip">✅ Closing</span></div>
+        </div>
+        <div class="legend">
+        <span class="lbl" data-cn="高亮颜色图例">Highlight colour key</span>
+        <span class="chip m">Modal verb + bare infinitive</span><span class="chip c">Contraction</span><span class="chip h">Cohesive device</span><span class="chip g">Making suggestions</span><span class="chip r">Giving reasons</span><span class="chip n">1st conditional</span><span class="chip a">Showing (dis)agreement</span><span class="chip e">Elaborating opinions</span><span class="chip ex">Giving examples</span><span class="chip pref">Expressing preference</span><span class="chip resp">Asking for response</span><span class="chip coll">Collocation / verb pattern</span><span class="chip lex">Phrasal verb</span><span class="chip form">Grammar / expression pattern</span><span class="chip prep">Preposition + gerund</span><span class="chip y">Meeting procedures</span>
+    </div>
+      </div>
+    </section>
+
+    <div id="dlgAnchor"></div>
+
+    <section class="slide" data-title="Language features" data-practice="Therefore, we should offer discounts on kitchenware.">
+      <div class="slide-inner">
+        <div class="task-section">
+            <h2 data-cn="语言特点">Language Features</h2>
+            <p class="note-block">A <span class="cross">✗</span> marks the <em>incorrect</em> form (e.g. <code>can + bought</code>), which should be the bare infinitive (e.g. <code>can buy</code>).<br>Contractions: Let's = let us, That's = that is, I'm = I am, We've = we have, I can't = I cannot.</p>
+        </div>
+        <div class="task-section"><h2 data-cn="沟通功能">Communicative Functions</h2><p class="note-block">Communicative functions (e.g. making suggestions, showing agreement, giving reasons) are highlighted in the <em>italic blue</em> line next to each speaker's turn.</p>
+          <div class="cf-grid"><div class="cf-card">
+                    <h3 data-cn="连接词／过渡语">Cohesive devices / Linking words</h3>
+                    <ul>
+                        <li>Besides / Moreover / Furthermore <span class="tag">(dated)</span></li>
+                        <li>In addition / Additionally</li>
+                        <li>Therefore / Thus / Hence / So</li>
+                    </ul>
+                </div><div class="cf-card">
+                    <h3 data-cn="缩写">Contractions</h3>
+                    <ul>
+                        <li>I'm (I am) / It'll (It will)</li>
+                        <li>We've (We have) / Let's (Let us)</li>
+                        <li>That's (That is)</li>
+                    </ul>
+                </div><div class="cf-card">
+                    <h3 data-cn="思考词（语气填充）">Thinking words (air fillers)</h3>
+                    <p>Well… &nbsp;Ummm… &nbsp;uhhhh…</p>
+                </div><div class="cf-card cf-wide">
+                    <h3 data-cn="情态动词">Modal verbs</h3>
+                    <div class="modal-grid">
+                        <div><strong>Ability:</strong> can, could</div>
+                        <div><strong>Possibility:</strong> may, might</div>
+                        <div><strong>Permission:</strong> Can, May</div>
+                        <div><strong>Obligation:</strong> must, have to</div>
+                        <div><strong>Prohibition:</strong> Can't, Mustn't</div>
+                        <div><strong>Offers:</strong> Will, Would</div>
+                        <div><strong>Suggestions:</strong> Shall, Should</div>
+                        <div><strong>Requests:</strong> Could, Would</div>
+                        <div><strong>Future Possibility:</strong> Will, Shall</div>
+                        <div><strong>Past Probability:</strong> Could have, Would have</div>
+                    </div>
+                    <p class="cf-note">+ action verb (bare infinitive) + object (noun clause), e.g. <em>Customers can buy eco-friendly products at a discount.</em></p>
+                </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Grammar and sentence patterns" data-practice="I suggest setting up a refillable water station.">
+      <div class="slide-inner">
+        <div class="task-section"><h2 data-cn="语法和句型">Grammar and Sentence Patterns</h2>
+          <div class="cf-grid"><div class="cf-card cf-wide">
+                    <h3 data-cn="主谓一致">Subject-verb agreement</h3>
+                    <div class="form-row">
+                        <div><span class="cross">✗</span> Does everyone <span class="hi-bad">has</span> a copy of the agenda?</div>
+                        <div><span class="tick">✓</span> Does everyone <span class="hi-good">have</span> a copy of the agenda?</div>
+                    </div>
+                </div><div class="cf-card cf-wide">
+                    <h3 data-cn="提出建议（行动动词：suggest + advise + recommend）">Making suggestions <span class="tag">(action verbs: suggest + advise + recommend)</span></h3>
+                    <div class="form-row">
+                        <div><span class="cross">✗</span> I suggest / advise / recommend <span class="hi-bad">to set up</span> a refillable water station.</div>
+                        <div><span class="tick">✓</span> I suggest / advise / recommend <span class="hi-good">setting up</span> a refillable water station.</div>
+                        <div><span class="tick">✓</span> I suggest / advise / recommend <span class="hi-good">that you (should — British style) set up</span> a refillable water station.</div>
+                        <div><span class="cross">✗</span> How about <span class="hi-bad">set up</span> recycling bins? &nbsp;&nbsp; <span class="tick">✓</span> How about <span class="hi-good">setting up</span> recycling bins?</div>
+                    </div>
+                </div><div class="cf-card cf-wide">
+                    <h3 data-cn="句子结构">Sentence structures</h3>
+                    <ul>
+                        <li><strong>Cause &amp; effect:</strong> <em>Since / Because / As</em> + S + V + O, S + V + O.</li>
+                        <li><em>But / However</em> + S + V + O.</li>
+                    </ul>
+                </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Meeting outcomes" data-practice="We have decided to set up recycling bins in our store.">
+      <div class="slide-inner">
+        <div class="summary-card">
+        <h3 data-cn="会议成果">Meeting Outcomes</h3>
+        <div class="summary-items">
+            <div class="summary-item" data-cn="厨具和家居装饰品是十一月折扣的首选，并会呈交管理层。">
+                <strong>🏷️ Discounted Products</strong>
+                Eco-friendly kitchenware and home decorations for the November sale · present the options to management
+            </div>
+            <div class="summary-item" data-cn="在线广告、特殊场合的优惠券，以及与社交媒体网红合作。">
+                <strong>📣 Promotion Strategies</strong>
+                Online advertisements · coupons on special occasions · influencer collaborations
+            </div>
+            <div class="summary-item" data-cn="向自备购物袋的顾客派发优惠券、设置回收箱和可补充水站。">
+                <strong>♻️ Greener Store</strong>
+                Coupons for reusable bags · recycling bins · a refillable water station
+            </div>
+        </div>
+    </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Video" data-nomic="1">
+      <div class="slide-inner">
+        <div class="task-section"><h2 data-cn="示范对话视频">Sample Conversation Video</h2></div>
+        <div class="video-single"><div class="video-wrap"><video controls playsinline preload="metadata"><source src="video.mp4" type="video/mp4"><source src="LAN3107_EAII_Practice%201_video.m4v" type="video/mp4">Your browser does not support the video tag.</video><div class="vcap">Sample conversation: Improving the Business of Home Essence</div></div></div>
+      </div>
+    </section>
+
+  </div><!-- /.slides -->
+
+  <div class="now-playing" id="nowPlaying">
+    <div class="now-playing-label">Now Playing</div>
+    <div class="now-playing-text" id="nowPlayingText">—</div>
+  </div>
+
+  <div class="toolbar">
+    <div class="nav">
+      <button class="nav-btn" id="prevBtn" aria-label="Previous slide">◀</button>
+      <select id="jump" class="speed-select" aria-label="Jump to slide"></select>
+      <button class="nav-btn" id="nextBtn" aria-label="Next slide">▶</button>
+    </div>
+    <div class="playback-controls">
+      <button class="play-all-btn" onclick="playAll()">▶ Play All</button>
+      <button class="pause-btn" onclick="pausePlay()">⏸ Pause</button>
+      <button class="stop-btn" onclick="stopPlay()">⏹ Stop</button>
+      <span class="speed-label">Speed:</span>
+      <select class="speed-select" onchange="setSpeed(this.value)" aria-label="Playback speed">
+        <option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1×</option>
+        <option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option>
+      </select>
+    </div>
+    <label class="cn-toggle"><input type="checkbox" onchange="toggleAllCN(this.checked)"><span>中文翻译</span></label>
+  </div>
+</div>
+
+<div id="languageTooltip" class="language-tooltip" role="tooltip" hidden></div>
+<div id="toast" class="toast" hidden></div>
+
+
+<script>
+const DIALOGUE = [
+ {
+  "sp": "B",
+  "fn": "Greetings. Welcoming participants. Opening the meeting.",
+  "t": "Good morning, everyone. Welcome to today's meeting. Shall we start now?",
+  "f": "01.mp3",
+  "cn": "大家早晨好。欢迎出席今天的会议。我们现在开始好吗？",
+  "hi": [
+   {
+    "m": "Good morning, everyone. Welcome to today's meeting",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "Shall we",
+    "l": "Making suggestions (shall we + V)"
+   }
+  ]
+ },
+ {
+  "sp": "All",
+  "t": "Yes. / Sure.",
+  "f": "02.mp3",
+  "cn": "好。／当然可以。",
+  "s": "Yes."
+ },
+ {
+  "sp": "C",
+  "t": "Does everyone have a copy of the agenda?",
+  "f": "03.mp3",
+  "cn": "大家都有议程的副本吗？",
+  "hi": [
+   {
+    "m": "Does everyone have",
+    "l": "Grammar — everyone is singular, so use does + base verb have."
+   },
+   {
+    "m": "copy of the agenda",
+    "l": "Collocation — a copy of the agenda means a printed or digital version of it."
+   }
+  ],
+  "fn": "Checking if the participants have a copy of the agenda."
+ },
+ {
+  "sp": "All",
+  "t": "Yes. / We do.",
+  "f": "04.mp3",
+  "cn": "有。／我们有。",
+  "s": "Yes."
+ },
+ {
+  "sp": "D",
+  "t": "Great! The purpose of today's meeting is to discuss plans to improve the business.",
+  "f": "05.mp3",
+  "cn": "很好！今天会议的目的是讨论改善业务的计划。",
+  "hi": [
+   {
+    "m": "The purpose of today's meeting is to discuss",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "improve the business",
+    "l": "Collocation — improve the business means make it perform better."
+   },
+   {
+    "m": "The purpose of today's meeting is to discuss",
+    "l": "Grammar — pattern: be + to + base verb states the aim of the meeting."
+   },
+   {
+    "m": "purpose of today's meeting",
+    "l": "Collocation — the purpose of a meeting is to + base verb (the purpose is to do something)."
+   },
+   {
+    "m": "plans to improve",
+    "l": "Grammar — the noun plans is followed by to + base verb to state what the plans aim to do."
+   }
+  ],
+  "fn": "Purpose of the meeting"
+ },
+ {
+  "sp": "A",
+  "t": "We are going to cover three agenda items: the monthly discounted products, promotion strategies for attracting customers, and any other business that you would like to discuss.",
+  "f": "06.mp3",
+  "cn": "我们会涵盖三项议程：每月折扣产品、吸引顾客的推广策略，以及你们想讨论的任何其他事项。",
+  "hi": [
+   {
+    "m": "We are going to cover three agenda items",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "monthly discounted products",
+    "l": "Collocation — discounted products are sold at reduced prices."
+   },
+   {
+    "m": "any other business",
+    "l": "Meeting expression — AOB means additional matters not listed on the agenda."
+   },
+   {
+    "m": "would like to discuss",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "We are going to cover three agenda items",
+    "l": "Grammar — be going to + base verb introduces a plan; cover agenda items means discuss them."
+   },
+   {
+    "m": "promotion strategies for attracting customers",
+    "l": "Collocation — promotion strategies are plans to make a store better known; for + V-ing states what the strategies are for."
+   }
+  ],
+  "fn": "Introducing the agenda"
+ },
+ {
+  "sp": "C",
+  "fn": "Making suggestions · Giving reasons · Giving examples",
+  "t": "Let's begin by talking about our monthly discounted products for November. These discount sales always generate a huge amount of business for our store so we must select products that will attract customers to visit the shop. I suggest that we should offer discounts on eco-friendly kitchenware since the holiday season is coming up and people need utensils when hosting family gatherings. We could include reusable silicone food storage bags, bamboo cutting boards, stainless steel straws, and glass meal storage containers as discounted items.",
+  "f": "07.mp3",
+  "cn": "我们先从十一月每月折扣产品谈起。这些折扣促销活动总能为我们商店带来大量生意，所以我们必须选择能吸引顾客到店光顾的产品。我建议我们应在环保厨具上提供折扣，因为节日季节将至，人们在家里举办家庭聚会时需要餐具。我们可以将可重复使用的矽胶食物储存袋、竹制砧板、不锈钢饮管和玻璃餐食储存容器列为折扣商品。",
+  "hi": [
+   {
+    "m": "Let's begin",
+    "l": "Contraction (Let us begin)"
+   },
+   {
+    "m": "by talking about",
+    "l": "Preposition: by + V-ing/(gerund)"
+   },
+   {
+    "m": "generate a huge amount of business",
+    "l": "Collocation — generate business means create sales and customer activity."
+   },
+   {
+    "m": "so we must select",
+    "l": "Cohesive device — so introduces a result"
+   },
+   {
+    "m": "I suggest that we should offer",
+    "l": "Making suggestions (suggest + that clause)"
+   },
+   {
+    "m": "since the holiday season is coming up",
+    "l": "Giving reasons: since (S+V+O)"
+   },
+   {
+    "m": "coming up",
+    "l": "Phrasal verb — come up means approach or draw near."
+   },
+   {
+    "m": "We could include",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "reusable silicone food storage bags, bamboo cutting boards, stainless steel straws, and glass meal storage containers",
+    "l": "Giving examples"
+   },
+   {
+    "m": "we must select",
+    "l": "Modal verb + bare infinitive (must: strong obligation)"
+   },
+   {
+    "m": "attract customers to visit the shop",
+    "l": "Verb pattern — attract someone to + base verb means make people want to do something."
+   },
+   {
+    "m": "offer discounts on",
+    "l": "Collocation — offer discounts on + product means sell it at a lower price."
+   },
+   {
+    "m": "eco-friendly kitchenware",
+    "l": "Collocation — eco-friendly means not harmful to the environment; kitchenware means items used in cooking."
+   },
+   {
+    "m": "holiday season",
+    "l": "Collocation — the holiday season is the festive period, usually near the end of the year."
+   },
+   {
+    "m": "hosting family gatherings",
+    "l": "Collocation — host a gathering means organise an event and welcome guests."
+   }
+  ]
+ },
+ {
+  "sp": "B",
+  "t": "I agree. These products are not only eco-friendly but also in high demand. Offering a discount would certainly attract more customers to buy them and encourage sustainable living. In addition, why don't we include home decorations in the November discounts as well? This would allow us to highlight our wide range of eco-friendly products, in addition to kitchenware. This may appeal to more customers. Do you see my point?",
+  "f": "08.mp3",
+  "cn": "我同意。这些产品不仅环保，而且需求量大。提供折扣肯定会吸引更多顾客购买，并鼓励可持续生活方式。此外，我们何不把家居装饰也纳入十一月折扣呢？这样除了厨具之外，也能突显我们种类繁多的环保产品。这可能会吸引更多顾客。你们明白我的意思吗？",
+  "hi": [
+   {
+    "m": "I agree",
+    "l": "Showing agreement"
+   },
+   {
+    "m": "not only eco-friendly but also in high demand",
+    "l": "Grammar — not only … but also joins two qualities in a parallel structure."
+   },
+   {
+    "m": "would certainly attract",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "encourage sustainable living",
+    "l": "Collocation — sustainable living means a lifestyle that protects the environment."
+   },
+   {
+    "m": "In addition",
+    "l": "Cohesive device"
+   },
+   {
+    "m": "why don't we include",
+    "l": "Making suggestions (why don't we + V)"
+   },
+   {
+    "m": "This would allow us to highlight",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "in addition to kitchenware",
+    "l": "Cohesive device"
+   },
+   {
+    "m": "This may appeal to",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "Do you see my point",
+    "l": "Asking for response"
+   },
+   {
+    "m": "in high demand",
+    "l": "Collocation — in high demand means many people want to buy the product."
+   },
+   {
+    "m": "attract more customers",
+    "l": "Collocation — attract customers means make people want to come to the store or buy."
+   },
+   {
+    "m": "home decorations",
+    "l": "Collocation — home decorations are items used to make a home look more attractive."
+   },
+   {
+    "m": "wide range of eco-friendly products",
+    "l": "Collocation — a wide range of means many different kinds of."
+   },
+   {
+    "m": "appeal to",
+    "l": "Phrasal verb — appeal to means be attractive or interesting to someone."
+   }
+  ],
+  "fn": "Showing agreement · Making suggestions · Giving reasons"
+ },
+ {
+  "sp": "A",
+  "t": "Yes, that's exactly my point of view. By providing discounts on eco-friendly home decorations, such as recycled glass vases and sustainable candles, we could draw customers' attention to some of our products which have not been selling very well. Also, could we include LED light bulbs and rechargeable batteries in our November sale? Offering these energy-efficient products at a discounted price could encourage more eco-conscious purchases by our customers.",
+  "f": "09.mp3",
+  "cn": "是的，这正是我的观点。透过为环保家居装饰（例如再生玻璃花瓶和可持续蜡烛）提供折扣，我们可以吸引顾客留意一些销量不佳的产品。另外，我们能否把 LED 灯泡和可充电电池纳入十一月促销？以折扣价提供这些节能产品，可以鼓励顾客作出更环保的购买决定。",
+  "hi": [
+   {
+    "m": "that's exactly my point of view",
+    "l": "Showing agreement"
+   },
+   {
+    "m": "that's",
+    "l": "Contraction (That is)"
+   },
+   {
+    "m": "By providing",
+    "l": "Preposition: by + V-ing/(gerund)"
+   },
+   {
+    "m": "such as recycled glass vases and sustainable candles",
+    "l": "Giving examples"
+   },
+   {
+    "m": "we could draw",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "customers' attention",
+    "l": "Collocation — draw attention to means make people notice something."
+   },
+   {
+    "m": "Also",
+    "l": "Cohesive device"
+   },
+   {
+    "m": "could we include",
+    "l": "Making suggestions (could we + V)"
+   },
+   {
+    "m": "energy-efficient products",
+    "l": "Collocation — products that use less energy."
+   },
+   {
+    "m": "could encourage",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "which have not been selling very well",
+    "l": "Grammar — relative clause: which refers to our products and adds information about them."
+   },
+   {
+    "m": "have not been selling",
+    "l": "Grammar — present perfect continuous: have not been + V-ing describes a situation that started in the past and continues now."
+   },
+   {
+    "m": "at a discounted price",
+    "l": "Collocation — at a discounted price means at a reduced price."
+   },
+   {
+    "m": "eco-conscious purchases",
+    "l": "Collocation — eco-conscious purchases are buying choices that take the environment into account."
+   }
+  ],
+  "fn": "Showing agreement · Giving examples · Making suggestions"
+ },
+ {
+  "sp": "C",
+  "t": "Umm, I'm afraid I don't think it is practical to sell energy-efficient products at discounted prices. The costs of these products are high. If we offer discounts on these products, it will affect our profit.",
+  "f": "10.mp3",
+  "cn": "嗯，恐怕我认为以折扣价出售节能产品并不实际。这些产品的成本很高。如果我们为这些产品提供折扣，会影响我们的利润。",
+  "hi": [
+   {
+    "m": "I'm",
+    "l": "Contraction (I am)"
+   },
+   {
+    "m": "I'm afraid I don't think",
+    "l": "Expressing disagreement politely"
+   },
+   {
+    "m": "The costs of these products are high",
+    "l": "Giving reasons (explaining the problem)"
+   },
+   {
+    "m": "If we offer discounts on these products, it will affect our profit",
+    "l": "1st conditional (if + present simple, will + base verb)"
+   },
+   {
+    "m": "it will affect",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "it is practical to sell",
+    "l": "Adjective pattern — it is + adjective (practical) + to + base verb (sell) evaluates an action."
+   },
+   {
+    "m": "affect our profit",
+    "l": "Collocation — affect profit means have an influence on the money the business earns."
+   }
+  ],
+  "fn": "Showing disagreement subtly · Giving reasons · Giving a condition"
+ },
+ {
+  "sp": "D",
+  "t": "That's a valid point. But we have to think of ways to improve the sales of our energy-efficient appliances since we want to encourage energy conservation. Let's discuss how we can achieve this in more detail in our next meeting.",
+  "f": "11.mp3",
+  "cn": "这是合理的观点。但我们要设法改善节能电器的销量，因为我们希望鼓励节约能源。让我们在下次会议中更详细地讨论如何实现这一点。",
+  "hi": [
+   {
+    "m": "That's a valid point",
+    "l": "Showing agreement"
+   },
+   {
+    "m": "That's",
+    "l": "Contraction (That is)"
+   },
+   {
+    "m": "But",
+    "l": "Cohesive device"
+   },
+   {
+    "m": "we have to think of ways",
+    "l": "Modal verb + bare infinitive (have to: obligation)"
+   },
+   {
+    "m": "improve the sales of",
+    "l": "Collocation — improve the sales means increase sales."
+   },
+   {
+    "m": "since we want to encourage energy conservation",
+    "l": "Giving reasons: since (S+V+O)"
+   },
+   {
+    "m": "Let's",
+    "l": "Contraction (Let us)"
+   },
+   {
+    "m": "Let's discuss",
+    "l": "Making suggestions (let's + V)"
+   },
+   {
+    "m": "in more detail",
+    "l": "Collocation — in more detail means with further explanation."
+   },
+   {
+    "m": "valid point",
+    "l": "Collocation — a valid point is a reasonable argument that deserves consideration."
+   },
+   {
+    "m": "think of ways to improve",
+    "l": "Verb pattern — think of + noun means come up with an idea; ways to + base verb names methods of doing something."
+   },
+   {
+    "m": "encourage energy conservation",
+    "l": "Collocation — energy conservation means saving energy."
+   }
+  ],
+  "fn": "Showing understanding · Making a counter-point · Giving reasons"
+ },
+ {
+  "sp": "B",
+  "t": "OK, so we've heard several suggestions now. Can we reach a decision on what types of products we should put on sale in November to entice customers to our store? It seems like kitchenware and home decorations are the most popular recommendations. Can we all agree that we should present these options to management?",
+  "f": "12.mp3",
+  "cn": "好的，我们已经听过几个建议了。我们能否就十一月应推出哪些产品来吸引顾客到店作出决定？似乎厨具和家居装饰是最受欢迎的建议。我们能否一致同意将这些选择呈交管理层？",
+  "hi": [
+   {
+    "m": "we've heard",
+    "l": "Contraction (we have heard)"
+   },
+   {
+    "m": "Can we reach a decision",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "we should put",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "to entice customers",
+    "l": "Collocation — entice means attract by offering something appealing."
+   },
+   {
+    "m": "It seems like",
+    "l": "Hedging — it seems like softens a statement, sounding tentative."
+   },
+   {
+    "m": "most popular recommendations",
+    "l": "Collocation — popular recommendations means widely favoured suggestions."
+   },
+   {
+    "m": "Can we all agree that we should present",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "we should present",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "reach a decision on",
+    "l": "Collocation — reach a decision means decide; on + noun gives the topic."
+   },
+   {
+    "m": "put on sale",
+    "l": "Phrasal verb — put on sale means offer goods for sale."
+   },
+   {
+    "m": "present these options to management",
+    "l": "Collocation — present options to someone means formally put them forward for consideration."
+   }
+  ],
+  "fn": "Drawing consensus · Asking for consensus"
+ },
+ {
+  "sp": "All",
+  "t": "Sure. / We can. / Let's do that.",
+  "f": "13.mp3",
+  "cn": "好。／可以。／就那样做吧。",
+  "s": "Sure."
+ },
+ {
+  "sp": "C",
+  "t": "Excellent! Let's move on to the next item on the agenda.",
+  "f": "14.mp3",
+  "cn": "很好！我们继续讨论下一项议程。",
+  "hi": [
+   {
+    "m": "Let's",
+    "l": "Contraction (Let us)"
+   },
+   {
+    "m": "Let's move on to the next item on the agenda",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "move on to",
+    "l": "Phrasal verb — move on to means proceed to the next topic or agenda item."
+   }
+  ],
+  "fn": "Switching topic"
+ },
+ {
+  "sp": "D",
+  "fn": "Inviting opinions",
+  "t": "What are your opinions on promotion strategies for attracting customers?",
+  "f": "15.mp3",
+  "cn": "你们对吸引顾客的推广策略有何看法？",
+  "hi": [
+   {
+    "m": "What are your opinions on",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "opinions on",
+    "l": "Collocation — we ask for someone's opinion on a topic."
+   },
+   {
+    "m": "promotion strategies",
+    "l": "Collocation — promotion strategies are plans for making a store or product more popular."
+   },
+   {
+    "m": "strategies for attracting",
+    "l": "Grammar — noun + for + V-ing (gerund) states what the strategies are for."
+   }
+  ]
+ },
+ {
+  "sp": "A",
+  "t": "How about using online advertisements? By placing digital advertisements across various social media platforms, such as YouTube and Instagram, we could greatly increase the exposure of our store and attract potential customers.",
+  "f": "16.mp3",
+  "cn": "使用网上广告如何？透过在各社交媒体平台（例如 YouTube 和 Instagram）投放数码广告，我们可以大幅提高商店的曝光率，并吸引潜在顾客。",
+  "hi": [
+   {
+    "m": "How about using",
+    "l": "Making suggestions (how about + V-ing)"
+   },
+   {
+    "m": "By placing",
+    "l": "Preposition: by + V-ing/(gerund)"
+   },
+   {
+    "m": "social media platforms",
+    "l": "Collocation — the usual phrase for online services such as Instagram."
+   },
+   {
+    "m": "such as YouTube and Instagram",
+    "l": "Giving examples"
+   },
+   {
+    "m": "we could greatly increase",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "exposure of our store",
+    "l": "Collocation — increase exposure means make more people aware of something."
+   },
+   {
+    "m": "potential customers",
+    "l": "Collocation — potential customers are people who may buy in the future."
+   },
+   {
+    "m": "placing digital advertisements",
+    "l": "Collocation — place advertisements means put them where people can see them."
+   },
+   {
+    "m": "greatly increase",
+    "l": "Collocation — greatly + increase strengthens the verb."
+   }
+  ],
+  "fn": "Making suggestions · Giving examples · Elaborating opinions"
+ },
+ {
+  "sp": "B",
+  "t": "You're right. Online advertisements would certainly reach a wide audience. Other than online advertisements, incentive-based offers such as coupons could be effective promotion tools as they can motivate customers to make in-store purchases directly.",
+  "f": "17.mp3",
+  "cn": "你说得对。网上广告肯定能触及广大受众。除了网上广告，优惠券等奖励性优惠也可作为有效的推广工具，因为它们能直接促使顾客在店内购物。",
+  "hi": [
+   {
+    "m": "You're right",
+    "l": "Showing agreement"
+   },
+   {
+    "m": "You're",
+    "l": "Contraction (You are)"
+   },
+   {
+    "m": "would certainly reach",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "Other than online advertisements",
+    "l": "Cohesive device"
+   },
+   {
+    "m": "such as coupons",
+    "l": "Giving examples"
+   },
+   {
+    "m": "could be effective",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "as they can motivate",
+    "l": "Giving reasons: as + S+V"
+   },
+   {
+    "m": "customers to make in-store purchases",
+    "l": "Verb pattern — motivate someone to + base verb."
+   },
+   {
+    "m": "reach a wide audience",
+    "l": "Collocation — reach an audience means communicate with many people."
+   },
+   {
+    "m": "incentive-based offers",
+    "l": "Collocation — incentive-based offers are deals that motivate people to buy by giving a reward."
+   },
+   {
+    "m": "promotion tools",
+    "l": "Collocation — promotion tools are methods used to promote a store or product."
+   },
+   {
+    "m": "make in-store purchases",
+    "l": "Collocation — make a purchase means buy something; in-store means in the shop."
+   }
+  ],
+  "fn": "Showing agreement · Making suggestions · Giving reasons"
+ },
+ {
+  "sp": "C",
+  "t": "Brilliant idea. People are drawn to discounts and special offers. So, if we give customers coupons on special occasions, such as the store's anniversary and festival weeks, we will surely boost sales.",
+  "f": "18.mp3",
+  "cn": "很棒的主意。人们会被折扣和特别优惠吸引。所以，如果我们在特别场合（例如商店周年纪念日和节日周）向顾客派发优惠券，我们肯定能提高销量。",
+  "hi": [
+   {
+    "m": "Brilliant idea",
+    "l": "Showing agreement"
+   },
+   {
+    "m": "People are drawn to",
+    "l": "Collocation / verb pattern — be drawn to means be attracted to."
+   },
+   {
+    "m": "So, if we give customers coupons",
+    "l": "1st conditional (if + present simple, will + base verb)"
+   },
+   {
+    "m": "So",
+    "l": "Cohesive device"
+   },
+   {
+    "m": "such as the store's anniversary and festival weeks",
+    "l": "Giving examples"
+   },
+   {
+    "m": "we will surely boost sales",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "special offers",
+    "l": "Collocation — special offers are limited-time deals, often at a lower price."
+   },
+   {
+    "m": "on special occasions",
+    "l": "Collocation — on special occasions means on important days or events."
+   },
+   {
+    "m": "boost sales",
+    "l": "Collocation — boost sales means increase sales."
+   }
+  ],
+  "fn": "Showing agreement · Giving reasons · Giving examples"
+ },
+ {
+  "sp": "All",
+  "t": "Yes. / Sure. / Wonderful.",
+  "f": "19.mp3",
+  "cn": "好。／当然可以。／太好了。",
+  "s": "Yes."
+ },
+ {
+  "sp": "D",
+  "t": "What if we do product placement in supermarkets to introduce our eco-friendly essentials to new customers? Or could we do product placements in movies and TV shows to reach an even wider audience? This is a proven way to generate interest in products and brands.",
+  "f": "20.mp3",
+  "cn": "如果我们在超市进行产品植入，向新顾客介绍我们的环保用品，怎么？或者我们能否在电影和电视节目中进行产品植入，以触及更广泛的受众？这是已被证实能引起人们对产品和品牌兴趣的方法。",
+  "hi": [
+   {
+    "m": "What if we do",
+    "l": "Making suggestions (what if + S + V)"
+   },
+   {
+    "m": "product placement",
+    "l": "Collocation — product placement is paid promotion of a product inside other content."
+   },
+   {
+    "m": "Or could we do",
+    "l": "Making suggestions (could we + V)"
+   },
+   {
+    "m": "reach an even wider audience",
+    "l": "Collocation — reach an audience means communicate with people."
+   },
+   {
+    "m": "a proven way to generate interest",
+    "l": "Collocation — generate interest means make people curious or attracted."
+   },
+   {
+    "m": "introduce our eco-friendly essentials to new customers",
+    "l": "Verb pattern — introduce + something + to + someone means present it to them for the first time."
+   }
+  ],
+  "fn": "Making suggestions · Giving reasons"
+ },
+ {
+  "sp": "A",
+  "t": "I'm sorry, but I don't think arranging product placements in supermarkets, movies, and TV shows would be feasible. I believe that it would cost a lot.",
+  "f": "21.mp3",
+  "cn": "对不起，但我认为在超市、电影和电视节目中进行产品植入并不可行。我相信这会花费很多金钱。",
+  "hi": [
+   {
+    "m": "I'm",
+    "l": "Contraction (I am)"
+   },
+   {
+    "m": "I'm sorry, but I don't think",
+    "l": "Expressing disagreement politely"
+   },
+   {
+    "m": "would be feasible",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "I believe that it would cost a lot",
+    "l": "Giving reasons (explaining the problem)"
+   },
+   {
+    "m": "it would cost",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "arranging product placements",
+    "l": "Collocation — arrange product placements means organise paid promotion of products."
+   },
+   {
+    "m": "cost a lot",
+    "l": "Collocation — cost a lot means be expensive."
+   }
+  ],
+  "fn": "Showing disagreement politely · Giving reasons"
+ },
+ {
+  "sp": "C",
+  "t": "I think another effective strategy would be collaborating with influencers on social media. By sharing our products with their followers online, influencers can generate interest in our store and our products.",
+  "f": "22.mp3",
+  "cn": "我认为另一个有效的策略是与社交媒体上的网红合作。透过在网上与他们的粉丝分享我们的产品，网红可以引起人们对我们商店和产品的兴趣。",
+  "hi": [
+   {
+    "m": "I think another effective strategy would be",
+    "l": "Making suggestions (strategy would be + V-ing)"
+   },
+   {
+    "m": "collaborating with influencers on social media",
+    "l": "Collocation — collaborate with + person means work together."
+   },
+   {
+    "m": "By sharing",
+    "l": "Preposition: by + V-ing/(gerund)"
+   },
+   {
+    "m": "influencers can generate interest",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "effective strategy",
+    "l": "Collocation — an effective strategy is a plan that achieves its aim."
+   },
+   {
+    "m": "followers online",
+    "l": "Collocation — followers are people who follow a person or account on social media."
+   }
+  ],
+  "fn": "Making suggestions · Giving reasons"
+ },
+ {
+  "sp": "D",
+  "t": "That's a wonderful idea! Why don't we partner with influencers such as Macy Wong who are more popular with household shoppers to engage that target group?",
+  "f": "23.mp3",
+  "cn": "这是个很棒的主意！我们何不与 Macy Wong 等更受家庭购物者欢迎的网红合作，以吸引该目标群组？",
+  "hi": [
+   {
+    "m": "That's a wonderful idea",
+    "l": "Showing agreement"
+   },
+   {
+    "m": "That's",
+    "l": "Contraction (That is)"
+   },
+   {
+    "m": "Why don't we partner with",
+    "l": "Making suggestions (why don't we + V)"
+   },
+   {
+    "m": "such as Macy Wong",
+    "l": "Giving examples"
+   },
+   {
+    "m": "who are more popular with household shoppers",
+    "l": "Elaborating opinions"
+   },
+   {
+    "m": "to engage that target group",
+    "l": "Collocation — target group means the people a business wants to reach."
+   },
+   {
+    "m": "partner with",
+    "l": "Verb pattern — partner with + person means work together as partners."
+   },
+   {
+    "m": "household shoppers",
+    "l": "Collocation — household shoppers are people who buy goods for their homes."
+   }
+  ],
+  "fn": "Showing agreement · Making suggestions"
+ },
+ {
+  "sp": "B",
+  "t": "Great idea! Do we have a consensus on promotion strategies then? Can we all agree that we should use online advertisements and give coupons to customers on special occasions to promote our store?",
+  "f": "24.mp3",
+  "cn": "好主意！那么我们对推广策略有共识了吗？我们能否一致同意使用网上广告，并在特别场合向顾客派发优惠券来推广我们的商店？",
+  "hi": [
+   {
+    "m": "Great idea",
+    "l": "Showing agreement"
+   },
+   {
+    "m": "Do we have a consensus on promotion strategies",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "Can we all agree that we should use",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "we should use",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "on special occasions",
+    "l": "Collocation — special occasions are events such as anniversaries and festivals."
+   },
+   {
+    "m": "consensus on",
+    "l": "Collocation — a consensus on a topic means general agreement about it."
+   },
+   {
+    "m": "give coupons to customers",
+    "l": "Verb pattern — give + something + to + someone."
+   },
+   {
+    "m": "promote our store",
+    "l": "Collocation — promote a store means advertise it to attract customers."
+   }
+  ],
+  "fn": "Drawing consensus · Asking for consensus"
+ },
+ {
+  "sp": "All",
+  "t": "Yes.",
+  "f": "25.mp3",
+  "cn": "可以。"
+ },
+ {
+  "sp": "A",
+  "t": "And do we all agree that we should collaborate with influencers on social media to increase people's awareness of our products and store?",
+  "f": "26.mp3",
+  "cn": "那么我们是否都同意与社交媒体网红合作，以提高人们对我们产品和商店的认识？",
+  "hi": [
+   {
+    "m": "And",
+    "l": "Cohesive device"
+   },
+   {
+    "m": "do we all agree that we should collaborate",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "we should collaborate",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "increase people's awareness of",
+    "l": "Collocation — increase awareness of means make people more informed about something."
+   },
+   {
+    "m": "collaborate with influencers",
+    "l": "Collocation — collaborate with + person means work together."
+   }
+  ],
+  "fn": "Asking for consensus"
+ },
+ {
+  "sp": "All",
+  "t": "Yes.",
+  "f": "27.mp3",
+  "cn": "可以。"
+ },
+ {
+  "sp": "B",
+  "t": "Fantastic! Does anyone have any other business that you would like to discuss?",
+  "f": "28.mp3",
+  "cn": "太棒了！还有没有其他人想讨论的其他事项？",
+  "hi": [
+   {
+    "m": "Does anyone have any other business",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "would like to discuss",
+    "l": "Modal verb + bare infinitive"
+   }
+  ],
+  "fn": "Inviting AOB"
+ },
+ {
+  "sp": "D",
+  "fn": "Initiating the discussion · Making suggestions · Giving reasons",
+  "t": "Yes. I would like to discuss ways to promote a greener culture in the store. I suggest setting up a refillable water station in our store to encourage customers to reduce the consumption of single-use plastic bottles and promote sustainability.",
+  "f": "29.mp3",
+  "cn": "有。我想讨论如何在店内推广更环保的文化。我建议在店内设置可补充水站，鼓励顾客减少使用即弃塑胶瓶，并推广可持续发展。",
+  "hi": [
+   {
+    "m": "I would like to discuss",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "ways to promote a greener culture",
+    "l": "Collocation — promote a culture means encourage a way of thinking or behaving."
+   },
+   {
+    "m": "I suggest setting up",
+    "l": "Making suggestions (suggest + V-ing)"
+   },
+   {
+    "m": "setting up",
+    "l": "Phrasal verb — set up means establish or arrange."
+   },
+   {
+    "m": "refillable water station",
+    "l": "Collocation — a place where customers can refill their own bottles."
+   },
+   {
+    "m": "to encourage customers to reduce",
+    "l": "Giving reasons (purpose: to + verb)"
+   },
+   {
+    "m": "single-use plastic bottles",
+    "l": "Collocation — single-use items are thrown away after one use."
+   },
+   {
+    "m": "reduce the consumption of",
+    "l": "Collocation — reduce the consumption of means use less of something."
+   },
+   {
+    "m": "promote sustainability",
+    "l": "Collocation — promote sustainability means support environmentally responsible practices."
+   }
+  ]
+ },
+ {
+  "sp": "C",
+  "t": "Excellent idea! As we are a green local business, displaying greater sustainability in the store will definitely create a positive brand image. Moreover, I recommend using e-receipts instead of paper receipts to reduce paper waste.",
+  "f": "30.mp3",
+  "cn": "很棒的主意！作为一家绿色本地企业，在店内展现更强的可持续性肯定会建立正面的品牌形象。此外，我建议使用电子收据代替纸质收据，以减少纸张浪费。",
+  "hi": [
+   {
+    "m": "Excellent idea",
+    "l": "Showing agreement"
+   },
+   {
+    "m": "As we are a green local business",
+    "l": "Giving reasons: as + S+V"
+   },
+   {
+    "m": "will definitely create",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "positive brand image",
+    "l": "Collocation — brand image is how the public sees a company."
+   },
+   {
+    "m": "Moreover",
+    "l": "Cohesive device"
+   },
+   {
+    "m": "I recommend using",
+    "l": "Making suggestions (recommend + V-ing)"
+   },
+   {
+    "m": "instead of paper receipts",
+    "l": "Grammar — instead of + noun shows an alternative."
+   },
+   {
+    "m": "green local business",
+    "l": "Collocation — a green business is one that cares about the environment."
+   },
+   {
+    "m": "create a positive brand image",
+    "l": "Collocation — create an image means build how the public sees the store."
+   },
+   {
+    "m": "reduce paper waste",
+    "l": "Collocation — reduce waste means produce less of what is thrown away."
+   }
+  ],
+  "fn": "Showing agreement · Giving reasons · Making suggestions"
+ },
+ {
+  "sp": "B",
+  "t": "I'm not so sure about that. Although introducing e-receipts would reduce paper wastage, we should consider the possible data security issues before implementing this plan. Let's discuss this topic in more detail in our next meeting. In the meantime, I would prefer to encourage greater use of reusable shopping bags in our store. Why don't we offer store coupons to all customers who bring reusable bags? By doing so, we can promote an eco-friendly shopping experience.",
+  "f": "31.mp3",
+  "cn": "我对此不太确定。虽然引入电子收据可以减少纸张浪费，但在实施此计划之前，我们应考虑可能出现的数据安全问题。让我们在下次会议中更详细地讨论这个话题。与此同时，我更倾向于鼓励顾客多加使用可重复使用的购物袋。我们何不向所有携带可重复使用购物袋的顾客提供商店优惠券？这样做可以推广环保购物体验。",
+  "hi": [
+   {
+    "m": "I'm",
+    "l": "Contraction (I am)"
+   },
+   {
+    "m": "I'm not so sure about that",
+    "l": "Showing reservation — polite disagreement"
+   },
+   {
+    "m": "Although",
+    "l": "Cohesive device"
+   },
+   {
+    "m": "would reduce",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "data security issues",
+    "l": "Collocation — data security issues are risks to the safety of personal information."
+   },
+   {
+    "m": "we should consider",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "before implementing this plan",
+    "l": "Preposition: before + V-ing/(gerund)"
+   },
+   {
+    "m": "Let's",
+    "l": "Contraction (Let us)"
+   },
+   {
+    "m": "Let's discuss",
+    "l": "Making suggestions (let's + V)"
+   },
+   {
+    "m": "In the meantime",
+    "l": "Cohesive device"
+   },
+   {
+    "m": "I would prefer to encourage",
+    "l": "Expressing preference"
+   },
+   {
+    "m": "Why don't we offer",
+    "l": "Making suggestions (why don't we + V)"
+   },
+   {
+    "m": "By doing so",
+    "l": "Cohesive device"
+   },
+   {
+    "m": "we can promote",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "paper wastage",
+    "l": "Collocation — wastage means the amount that is wasted."
+   },
+   {
+    "m": "encourage greater use of",
+    "l": "Collocation — encourage greater use of means promote using something more."
+   },
+   {
+    "m": "store coupons",
+    "l": "Collocation — store coupons are vouchers that give a discount in that store."
+   },
+   {
+    "m": "eco-friendly shopping experience",
+    "l": "Collocation — shopping experience means how customers feel when they shop."
+   }
+  ],
+  "fn": "Showing reservation · Expressing preference · Making suggestions"
+ },
+ {
+  "sp": "A",
+  "t": "Yes, setting up a refillable water station and giving coupons to customers who bring reusable shopping bags are very good suggestions. Do we all agree?",
+  "f": "32.mp3",
+  "cn": "是的，设置可补充水站和向携带可重复使用购物袋的顾客派发优惠券都是非常好的建议。我们都同意吗？",
+  "hi": [
+   {
+    "m": "very good suggestions",
+    "l": "Showing agreement"
+   },
+   {
+    "m": "Do we all agree",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "who bring reusable shopping bags",
+    "l": "Grammar — relative clause: who refers to customers and identifies which customers receive coupons."
+   }
+  ],
+  "fn": "Showing agreement · Drawing consensus"
+ },
+ {
+  "sp": "All",
+  "t": "Yes. / OK.",
+  "f": "33.mp3",
+  "cn": "好。／可以。",
+  "s": "Yes."
+ },
+ {
+  "sp": "A",
+  "t": "I have another idea. What about setting up recycling bins in our store? Having bins for paper, plastic, glass, and other recyclables would make it convenient for customers to dispose of items in an environmentally friendly way.",
+  "f": "34.mp3",
+  "cn": "我还有另一个想法。在店内设置回收箱如何？设置纸类、塑胶、玻璃和其他可回收物的回收箱，可方便顾客以环保方式弃置物品。",
+  "hi": [
+   {
+    "m": "I have another idea",
+    "l": "Making suggestions (introducing a new idea)"
+   },
+   {
+    "m": "What about setting up",
+    "l": "Making suggestions (what about + V-ing)"
+   },
+   {
+    "m": "would make it convenient for customers to dispose of items",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "dispose of",
+    "l": "Phrasal verb — dispose of means throw away."
+   },
+   {
+    "m": "in an environmentally friendly way",
+    "l": "Collocation — an environmentally friendly way means a method that does not harm nature."
+   },
+   {
+    "m": "recycling bins",
+    "l": "Collocation — recycling bins are containers for items that will be recycled."
+   },
+   {
+    "m": "make it convenient for customers to dispose of",
+    "l": "Verb pattern — make + it + adjective + for + someone + to + base verb."
+   }
+  ],
+  "fn": "Making suggestions · Giving reasons"
+ },
+ {
+  "sp": "D",
+  "t": "Absolutely. We can certainly do that. It would be a strong statement of our commitment to a green culture. We could place the bins near the shop exit.",
+  "f": "35.mp3",
+  "cn": "绝对可以。我们当然可以这样做。这将是我们对绿色文化承诺的有力体现。我们可以把回收箱放在商店出口附近。",
+  "hi": [
+   {
+    "m": "Absolutely",
+    "l": "Showing agreement"
+   },
+   {
+    "m": "We can certainly do that",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "It would be a strong statement",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "commitment to a green culture",
+    "l": "Collocation — commitment to + noun."
+   },
+   {
+    "m": "We could place",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "strong statement of our commitment",
+    "l": "Collocation — a strong statement means a clear message about what the store stands for."
+   }
+  ],
+  "fn": "Showing agreement · Elaborating opinions"
+ },
+ {
+  "sp": "C",
+  "t": "Alright. Let's present this idea to management as well. Do we have any other suggestions?",
+  "f": "36.mp3",
+  "cn": "好的。让我们也把这个想法呈交管理层。还有其他建议吗？",
+  "hi": [
+   {
+    "m": "Let's",
+    "l": "Contraction (Let us)"
+   },
+   {
+    "m": "Let's present this idea to management",
+    "l": "Making suggestions (let's + V)"
+   },
+   {
+    "m": "Do we have any other suggestions",
+    "l": "Meeting procedures"
+   }
+  ],
+  "fn": "Showing agreement · Drawing consensus · Inviting suggestions"
+ },
+ {
+  "sp": "All",
+  "t": "No. / I don't. / Not right now.",
+  "f": "37.mp3",
+  "cn": "没有。／我没有。／暂时没有。",
+  "s": "No."
+ },
+ {
+  "sp": "A",
+  "t": "So, we have decided to reward customers using reusable shopping bags, set up recycling bins, and place a refillable water station in our store to strengthen the store's eco-friendly efforts.",
+  "f": "38.mp3",
+  "cn": "那么，我们已决定奖励使用可重复使用购物袋的顾客、设置回收箱，并在店内放置可补充水站，以加强商店的环保工作。",
+  "hi": [
+   {
+    "m": "So, we have decided to",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "strengthen the store's eco-friendly efforts",
+    "l": "Collocation — strengthen efforts means make them stronger."
+   },
+   {
+    "m": "reward customers",
+    "l": "Collocation — reward customers means give them a benefit for good behaviour."
+   }
+  ],
+  "fn": "Making a summary"
+ },
+ {
+  "sp": "D",
+  "fn": "Winding up · Leave-taking",
+  "t": "Well, I think that's all we have time for today. We have some really promising ideas to take to management. Does anybody have anything else to contribute?",
+  "f": "39.mp3",
+  "cn": "好吧，我想今天我们讨论的就是这些。我们有一些非常有前景的想法可以呈交管理层。各位还有没有其他补充？",
+  "hi": [
+   {
+    "m": "that's",
+    "l": "Contraction (That is)"
+   },
+   {
+    "m": "that's all we have time for today",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "promising ideas",
+    "l": "Collocation — promising ideas are ideas likely to succeed."
+   },
+   {
+    "m": "Does anybody have anything else to contribute",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "ideas to take to management",
+    "l": "Collocation — take an idea to management means present it for consideration."
+   }
+  ]
+ },
+ {
+  "sp": "All",
+  "t": "No. / I don't. / Not right now.",
+  "f": "40.mp3",
+  "cn": "没有。／我没有。／暂时没有。",
+  "s": "No."
+ },
+ {
+  "sp": "B",
+  "t": "Well, if nobody has anything else to add, I think we can finish here. Thank you very much for attending the meeting and making contributions, everybody.",
+  "f": "41.mp3",
+  "cn": "好吧，如果没有人有其他补充，我想我们可以在这里结束。非常感谢各位出席会议并作出贡献。",
+  "hi": [
+   {
+    "m": "if nobody has anything else to add",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "I think we can finish here",
+    "l": "Modal verb + bare infinitive"
+   },
+   {
+    "m": "Thank you very much for attending the meeting and making contributions",
+    "l": "Meeting procedures"
+   },
+   {
+    "m": "making contributions",
+    "l": "Collocation — make contributions means offer ideas or help."
+   },
+   {
+    "m": "for attending the meeting",
+    "l": "Grammar — after the preposition for, use a gerund (attending)."
+   },
+   {
+    "m": "if nobody has anything else to add",
+    "l": "Conditional clause — if + present tense introduces the condition for ending."
+   }
+  ],
+  "fn": "Closing the meeting"
+ }
+];
+let languageTagNumber = 0;
+
+    function renderDialogue(list, offset) {
+        languageTagNumber = 0;
+        function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+        function colorOf(label) {
+            if (/contraction/i.test(label)) return 'c';
+            if (/phrasal verb/i.test(label)) return 'lex';
+            if (/collocation|verb pattern/i.test(label)) return 'coll';
+            if (/modal/i.test(label)) return 'm';
+            if (/giving reasons|since \(s\+v\+o\)|reason/i.test(label)) return 'r';
+            if (/suggest|propose|recommend|how about|what about|what if/i.test(label)) return 'g';
+            if (/cohesive|although|however|therefore|whereas|building on|in that case/i.test(label)) return 'h';
+            if (/conditional/i.test(label)) return 'n';
+            if (/agreement|agree/i.test(label)) return 'a';
+            if (/elaborat/i.test(label)) return 'e';
+            if (/meeting|agenda|purpose|summar|winding|closing|opening|attention/i.test(label)) return 'y';
+            if (/yellow/i.test(label)) return 'y';
+            if (/preposition|by \+ gerund/i.test(label)) return 'prep';
+            if (/asking for response/i.test(label)) return 'resp';
+            if (/giving examples/i.test(label)) return 'ex';
+            if (/expressing preference/i.test(label)) return 'pref';
+            if (/grammar|reference words|adjective pattern|comparative|purpose|fixed expression|opinion phrase|concession|hedging|question phrase|signpost|meeting expression|time expression|polite disagreement|polite request|linker|conditional clause/i.test(label)) return 'form';
+            return 'm';
+        }
+        function wordify(value) {
+            return esc(value).replace(/(\S+)/g, function(token) {
+                return '<span class="word" data-word="' + token + '">' + token + '</span>';
+            });
+        }
+        // Recursively render a text range, nesting overlapping language highlights.
+        function renderRange(text, rangeStart, rangeEnd, candidates) {
+            var within = candidates.filter(function(sp) { return sp.s >= rangeStart && sp.e <= rangeEnd; });
+            var top = within.filter(function(sp) {
+                return !within.some(function(other) {
+                    return other !== sp && other.s <= sp.s && other.e >= sp.e && (other.s !== sp.s || other.e !== sp.e);
+                });
+            });
+            var seen = {};
+            top = top.filter(function(sp) {
+                var key = sp.s + '-' + sp.e;
+                if (seen[key]) return false;
+                seen[key] = true;
+                return true;
+            });
+            top.sort(function(a, b) { return a.s - b.s; });
+            var out = '', pos = rangeStart;
+            top.forEach(function(sp) {
+                out += wordify(text.substring(pos, sp.s));
+                var inner = renderRange(text, sp.s, sp.e, candidates.filter(function(c) { return c !== sp; }));
+                var markerNumber = ++languageTagNumber;
+                out += '<mark class="lang-hl ' + colorOf(sp.l) + '">' + inner + '<button type="button" class="explain-marker" data-explanation="' + esc(sp.explanation) + '" aria-label="Show explanation ' + markerNumber + '">' + markerNumber + '</button></mark>';
+                pos = sp.e;
+            });
+            out += wordify(text.substring(pos, rangeEnd));
+            return out;
+        }
+        var html = '<table class="dialogue-table"><thead><tr>'
+            + '<th>Student</th><th>Conversation (language items highlighted)</th>'
+            + '</tr></thead><tbody>';
+        list.forEach(function(ut, li) {
+            var text = ut.t, spans = [];
+            function addSpan(start, end, label) {
+                var explanation = label;
+                if (/^yellow$/i.test(label)) explanation = ut.fn ? 'Communicative purpose — ' + ut.fn.replace(/\n/g, ' · ') : 'Meeting language — acknowledges a point or helps organise the discussion.';
+                else if (/^meeting procedures$/i.test(label)) explanation = ut.fn ? 'Meeting procedure — ' + ut.fn.replace(/\n/g, ' · ') : 'Meeting language — helps organise the discussion.';
+                var existing = spans.find(function(sp) { return sp.s === start && sp.e === end; });
+                if (existing) {
+                    if (existing.explanation.indexOf(explanation) < 0) existing.explanation += ' ' + explanation;
+                } else {
+                    spans.push({ s: start, e: end, l: label, explanation: explanation });
+                }
+            }
+            (ut.hi || []).forEach(function(h) {
+                var idx = text.indexOf(h.m);
+                if (idx < 0) return;
+                if (h.hl) {
+                    var subIdx = h.m.indexOf(h.hl);
+                    if (subIdx >= 0) { addSpan(idx + subIdx, idx + subIdx + h.hl.length, h.l); return; }
+                }
+                addSpan(idx, idx + h.m.length, h.l);
+            });
+            var hl = renderRange(text, 0, text.length, spans);
+            var fnLabel = ut.fn ? '<div class="fn-label">' + esc(ut.fn) + '</div>' : '';
+            var fnCell = fnLabel || '<span class="muted">&mdash;</span>';
+            var role = ut.sp === 'All' ? 'ALL' : ut.sp;
+            var btn = '<button class="speaker-btn role-' + role + '" onclick="play(\'' + ut.f + '\', this)" title="Play">'
+                + role + '<div class="audio-pulse"></div></button>';
+            html += (fnLabel ? '<tr class="fn-row"><td colspan="2" class="c-fnrow">' + fnLabel + '</td></tr>' : '') + '<tr class="script-row" data-i="' + (offset + li) + '" data-file="' + ut.f + '">'
+                + '<td class="c-stu">' + btn + '</td>'
+                + '<td class="c-script"><span class="script-text" data-cn="' + esc(ut.cn || '') + '">' + hl + '</span></td>'
+                + ''
+                + '</tr>';
+        });
+        html += '</tbody></table>';
+        return html;
+    }
+
+    
+    function initTranslations() {
+        document.querySelectorAll('.slide [data-cn]').forEach(el => {
+            if (el.dataset.cnProcessed) return;
+            el.dataset.cnProcessed = '1';
+            const trans = document.createElement('div');
+            trans.className = 'cn-translation';
+            trans.textContent = el.dataset.cn;
+            el.after(trans);
+        });
+    }
+function initLanguageTooltips() {
+        const dialogue = document.getElementById('deck');
+        const tooltip = document.getElementById('languageTooltip');
+        let activeMark = null;
+        let pinned = false;
+        let lastPointerType = 'mouse';
+
+        function positionTooltip(mark) {
+            tooltip.textContent = mark.dataset.explanation;
+            tooltip.hidden = false;
+            const phrase = mark.getBoundingClientRect();
+            const bubble = tooltip.getBoundingClientRect();
+            const left = Math.max(12, Math.min(phrase.left + phrase.width / 2 - bubble.width / 2, window.innerWidth - bubble.width - 12));
+            let top = phrase.top - bubble.height - 10;
+            if (top < 8) top = phrase.bottom + 10;
+            if (top + bubble.height > window.innerHeight - 8) top = Math.max(8, window.innerHeight - bubble.height - 8);
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+
+        function showTooltip(mark, keepOpen) {
+            if (!mark || !mark.dataset.explanation) return;
+            if (activeMark && activeMark !== mark) activeMark.removeAttribute('aria-describedby');
+            activeMark = mark;
+            pinned = Boolean(keepOpen);
+            mark.setAttribute('aria-describedby', 'languageTooltip');
+            positionTooltip(mark);
+        }
+
+        function hideTooltip() {
+            if (activeMark) activeMark.removeAttribute('aria-describedby');
+            activeMark = null;
+            pinned = false;
+            tooltip.hidden = true;
+        }
+
+        dialogue.addEventListener('pointerover', event => {
+            lastPointerType = event.pointerType || 'mouse';
+            if (lastPointerType === 'touch') return;
+            const mark = event.target.closest('.explain-marker[data-explanation]');
+            if (mark && dialogue.contains(mark)) showTooltip(mark, false);
+        });
+
+        dialogue.addEventListener('pointerout', event => {
+            if (lastPointerType === 'touch' || pinned) return;
+            const mark = event.target.closest('.explain-marker[data-explanation]');
+            if (mark && dialogue.contains(mark) && !mark.contains(event.relatedTarget)) hideTooltip();
+        });
+
+        dialogue.addEventListener('focusin', event => {
+            const mark = event.target.closest('.explain-marker[data-explanation]');
+            if (mark && dialogue.contains(mark)) showTooltip(mark, false);
+        });
+
+        dialogue.addEventListener('focusout', () => {
+            if (!pinned) hideTooltip();
+        });
+
+        dialogue.addEventListener('pointerdown', event => {
+            lastPointerType = event.pointerType || 'mouse';
+        });
+
+        dialogue.addEventListener('click', event => {
+            const mark = event.target.closest('.explain-marker[data-explanation]');
+            if (!mark || !dialogue.contains(mark)) {
+                if (lastPointerType === 'touch') hideTooltip();
+                return;
+            }
+            if (lastPointerType === 'touch') {
+                if (activeMark === mark && pinned) hideTooltip();
+                else showTooltip(mark, true);
+            }
+        });
+
+        document.addEventListener('pointerdown', event => {
+            if (activeMark && !activeMark.contains(event.target) && !tooltip.contains(event.target)) hideTooltip();
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && activeMark) hideTooltip();
+        });
+
+        window.addEventListener('resize', () => {
+            if (activeMark) positionTooltip(activeMark);
+        });
+        window.addEventListener('scroll', () => {
+            if (activeMark) positionTooltip(activeMark);
+        }, true);
+    }
+
+    const pronunciationMap = { 'SMS': 'S M S', 'SMS.': 'S M S.', 'QR': 'Q R' };
+
+    let hoverSpeakTimer = null;
+
+    function preferredEnglishVoice() {
+        const voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+        const english = voices.filter(v => /^en([-_]|$)/i.test(v.lang || ''));
+        return english.find(v => /natural|neural|premium|enhanced|siri|ava|samantha|serena|daniel/i.test(v.name))
+            || english.find(v => /google|microsoft|apple/i.test(v.name))
+            || english.find(v => /en[-_]US/i.test(v.lang))
+            || english[0] || null;
+    }
+
+    /* ===================== Deck runtime ===================== */
+let currentAudio = null;
+let currentBtn = null;
+let speed = 1;
+const PA = { active: false, paused: false, idx: 0, btns: [], timer: null };
+let slides = [];
+let cur = 0;
+
+function esc2(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(toast._t); toast._t = setTimeout(() => { t.hidden = true; }, 3200);
+}
+
+/* ---------- Responsive scale ---------- */
+function applyScale() {
+    const host = document.getElementById('slides');
+    const w = host.clientWidth, h = host.clientHeight;
+    let z = 1;
+    if (w >= 700 && h >= 420) z = Math.max(1, Math.min(w / 1000, h / 700, 1.75));
+    document.getElementById('deck').style.setProperty('--z', z.toFixed(2));
+}
+window.addEventListener('resize', applyScale);
+
+/* ---------- Navigation ---------- */
+function slideIndexOf(el) { return slides.indexOf(el.closest('.slide')); }
+
+function goTo(i, keepAudio) {
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    if (!keepAudio) { stopPlay(); stopMic(); }
+    slides[cur].classList.remove('active');
+    slides[cur].querySelectorAll('video').forEach(v => v.pause());
+    cur = i;
+    slides[cur].classList.add('active');
+    slides[cur].scrollTop = 0;
+    document.getElementById('languageTooltip').hidden = true;
+    if (micModal) { closeMic(); micFab.hidden = !slides[cur].dataset.mic; }
+    document.getElementById('jump').value = String(cur);
+    document.getElementById('prevBtn').disabled = cur === 0;
+    document.getElementById('nextBtn').disabled = cur === slides.length - 1;
+    document.getElementById('progressBar').style.width = ((cur + 1) / slides.length * 100) + '%';
+    try { history.replaceState(null, '', '#' + (cur + 1)); } catch (e) {}
+}
+
+function initNav() {
+    const jump = document.getElementById('jump');
+    slides.forEach((s, i) => {
+        const o = document.createElement('option');
+        o.value = String(i); o.textContent = (i + 1) + '. ' + (s.dataset.title || 'Slide');
+        jump.appendChild(o);
+    });
+    jump.addEventListener('change', () => goTo(parseInt(jump.value, 10)));
+    document.getElementById('prevBtn').addEventListener('click', () => goTo(cur - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => goTo(cur + 1));
+    document.addEventListener('keydown', e => {
+        if (/^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName)) return;
+        if (micOpen()) return;
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') goTo(cur + 1);
+        else if (e.key === 'ArrowLeft' || e.key === 'PageUp') goTo(cur - 1);
+        else if (e.key === 'Home') goTo(0);
+        else if (e.key === 'End') goTo(slides.length - 1);
+    });
+    /* ---------- Swipe navigation (touch, pen and trackpad) ----------
+       Pointer events + touch-action:pan-y keep horizontal swipes working on tall, scrollable slides;
+       touchend/wheel fallbacks cover other browsers. Vertical scrolling is untouched. */
+    const host = document.getElementById('slides');
+    let sw = null, lastNav = 0;
+    const SWIPE_BLOCK = 'audio,select,input,textarea,.mic-panel,.mic-modal';
+    function swipeBlocked(target, y) {
+        if (target.closest(SWIPE_BLOCK) || hScrollable(target)) return true;
+        const v = target.closest('video');          // only the player's control strip is left to the video (scrubbing)
+        if (v) { const r = v.getBoundingClientRect(); if (y > r.bottom - 48) return true; }
+        return false;
+    }
+    function swipeNav(dir) {
+        const now = Date.now();
+        if (now - lastNav < 350) return;
+        lastNav = now;
+        goTo(cur + dir);
+    }
+    function hScrollable(el) {
+        for (; el && el !== host; el = el.parentElement) {
+            if (el.classList && el.classList.contains('slide')) continue;   // the slide itself never scrolls sideways
+            const cs = getComputedStyle(el);
+            if (/(auto|scroll)/.test(cs.overflowX) && el.scrollWidth > el.clientWidth + 4) return true;
+        }
+        return false;
+    }
+    function isSwipe(dx, dy, dt) { return Math.abs(dx) > 50 && Math.abs(dx) > 1.4 * Math.abs(dy) && dt < 1500; }
+
+    host.addEventListener('pointerdown', e => {
+        if (e.pointerType === 'mouse' || !e.isPrimary || swipeBlocked(e.target, e.clientY)) { sw = null; return; }
+        sw = { id: e.pointerId, x: e.clientX, y: e.clientY, t: Date.now() };
+    }, { passive: true });
+    host.addEventListener('pointerup', e => {
+        if (!sw || sw.id !== e.pointerId) return;
+        const dx = e.clientX - sw.x, dy = e.clientY - sw.y, dt = Date.now() - sw.t;
+        sw = null;
+        if (isSwipe(dx, dy, dt)) swipeNav(dx < 0 ? 1 : -1);
+    }, { passive: true });
+    host.addEventListener('pointercancel', () => { sw = null; }, { passive: true });
+
+    let tx = null, ty = 0, tt = 0;
+    host.addEventListener('touchstart', e => {
+        if (e.touches.length !== 1 || swipeBlocked(e.target, e.touches[0].clientY)) { tx = null; return; }
+        tx = e.touches[0].clientX; ty = e.touches[0].clientY; tt = Date.now();
+    }, { passive: true });
+    host.addEventListener('touchend', e => {
+        if (tx === null) return;
+        const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty, dt = Date.now() - tt;
+        tx = null;
+        if (isSwipe(dx, dy, dt)) swipeNav(dx < 0 ? 1 : -1);
+    }, { passive: true });
+    host.addEventListener('touchcancel', () => { tx = null; }, { passive: true });
+
+    let wx = 0, wLocked = false, wTimer = null;
+    host.addEventListener('wheel', e => {
+        if (micOpen() || Math.abs(e.deltaX) <= Math.abs(e.deltaY) * 1.2 || hScrollable(e.target)) return;
+        e.preventDefault();
+        clearTimeout(wTimer);
+        wTimer = setTimeout(() => { wLocked = false; wx = 0; }, 160);   // unlocks once the trackpad inertia stops
+        if (wLocked) return;
+        wx += e.deltaX;
+        if (Math.abs(wx) > 90) { wLocked = true; swipeNav(wx > 0 ? 1 : -1); wx = 0; }
+    }, { passive: false });
+    const start = parseInt((location.hash || '').slice(1), 10);
+    goTo(start >= 1 && start <= slides.length ? start - 1 : 0, true);
+}
+
+/* ---------- Dialogue → slides (one mp3 per line: DIALOGUE[i].f) ---------- */
+function buildDialogueSlides() {
+    const anchor = document.getElementById('dlgAnchor');
+    const size = 3;
+    const chunks = [];
+    for (let i = 0; i < DIALOGUE.length; i += size) chunks.push([i, DIALOGUE.slice(i, i + size)]);
+    if (chunks.length > 1 && chunks[chunks.length - 1][1].length === 1) {
+        const last = chunks.pop();
+        chunks[chunks.length - 1][1].push(last[1][0]);
+    }
+    chunks.forEach((c, n) => {
+        const sec = document.createElement('section');
+        sec.className = 'slide';
+        sec.dataset.dialogue = '1';
+        sec.dataset.title = 'Discussion ' + (n + 1) + '/' + chunks.length;
+        sec.innerHTML = '<div class="slide-inner"><div class="slide-head"><div class="eyebrow">Possible Response</div>'
+            + '<h2>Discussion ' + (n + 1) + ' / ' + chunks.length + '</h2></div>'
+            + '<div class="dlg">' + renderDialogue(c[1], c[0]) + '</div></div>';
+        anchor.before(sec);
+    });
+    anchor.remove();
+}
+
+/* ---------- Words: make all slide text hoverable ---------- */
+function wordifyStatic() {
+    const SKIP = /^(SCRIPT|STYLE|BUTTON|SELECT|OPTION|VIDEO|TEXTAREA|SOURCE)$/;
+    slides.forEach(slide => {
+        const walker = document.createTreeWalker(slide, NodeFilter.SHOW_TEXT, {
+            acceptNode(n) {
+                if (!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                const p = n.parentElement;
+                if (!p || SKIP.test(p.tagName)) return NodeFilter.FILTER_REJECT;
+                if (p.closest('.word, .dialogue-table, .cn-translation, .mic-panel, .vcap, .explain-marker')) return NodeFilter.FILTER_REJECT;
+                return NodeFilter.FILTER_ACCEPT;
+            }
+        });
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(n => {
+            const frag = document.createDocumentFragment();
+            n.nodeValue.split(/(\s+)/).forEach(part => {
+                if (!part) return;
+                if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+                const sp = document.createElement('span');
+                sp.className = 'word'; sp.dataset.word = part; sp.textContent = part;
+                frag.appendChild(sp);
+            });
+            n.parentNode.replaceChild(frag, n);
+        });
+    });
+}
+
+/* ---------- Hover-a-word pronunciation (speech synthesis) ---------- */
+function speakHoveredWord(wordEl) {
+    clearTimeout(hoverSpeakTimer);
+    hoverSpeakTimer = setTimeout(() => {
+        const raw = wordEl.dataset.word || wordEl.textContent;
+        const word = raw.replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9'’-]+$/g, '');
+        if (!word || !window.speechSynthesis || !window.SpeechSynthesisUtterance) return;
+        if (MIC.listening) return;
+        if (currentAudio && !currentAudio.paused) pausePlay();   // word pronunciation pauses script audio
+        speechSynthesis.cancel();
+        document.querySelectorAll('.word.speaking').forEach(el => el.classList.remove('speaking'));
+        const utterance = new SpeechSynthesisUtterance(pronunciationMap[raw] || pronunciationMap[word] || word);
+        const voice = preferredEnglishVoice();
+        if (voice) utterance.voice = voice;
+        utterance.lang = voice ? voice.lang : 'en-US';
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+        wordEl.classList.add('speaking');
+        utterance.onend = utterance.onerror = () => wordEl.classList.remove('speaking');
+        speechSynthesis.speak(utterance);
+    }, 280);
+}
+
+function initWordPronunciation() {
+    [document.getElementById('slides'), micModal].forEach(bindWordPronunciation);
+}
+function bindWordPronunciation(root) {
+    root.addEventListener('pointerover', event => {
+        if (event.pointerType === 'touch') return;
+        const word = event.target.closest('.word');
+        if (word && !word.contains(event.relatedTarget)) speakHoveredWord(word);
+    });
+    root.addEventListener('pointerout', event => {
+        if (event.pointerType !== 'touch' && event.target.closest('.word')) clearTimeout(hoverSpeakTimer);
+    });
+    root.addEventListener('click', event => {
+        const word = event.target.closest('.word');
+        if (word) speakHoveredWord(word);
+    });
+}
+
+/* ---------- Audio engine (hard-coded mp3 per line: audio/<file>) ---------- */
+function getAllBtns() { return [...document.querySelectorAll('.speaker-btn')]; }
+
+function startClip(btn) {
+    stopMic();
+    const row = btn.closest('.script-row');
+    const file = row.dataset.file;
+    const audio = new Audio('audio/' + file);
+    audio.playbackRate = speed;
+    currentAudio = audio; currentBtn = btn;
+    btn.classList.add('playing');
+    setNowPlaying(btn);
+    startWordTrack(btn, audio);
+    let done = false;
+    const finish = failed => {
+        if (done) return; done = true;
+        btn.classList.remove('playing');
+        clearRowActive(); clearWordTrack();
+        if (currentBtn === btn) currentBtn = null;
+        if (failed) toast('Audio file not found: audio/' + file);
+        if (PA.active && !PA.paused) {
+            PA.idx++;
+            PA.timer = setTimeout(() => { clearNowPlaying(); paNext(); }, failed ? 0 : 600);
+        } else if (!PA.active) clearNowPlaying();
+    };
+    audio.addEventListener('ended', () => finish(false));
+    audio.addEventListener('error', () => finish(true));
+    audio.play().catch(e => { if (e && e.name === 'NotAllowedError') { toast('Tap a speaker button to start audio.'); finish(false); } });
+}
+
+function play(file, btn) {
+    const same = currentBtn === btn && currentAudio && !currentAudio.paused;
+    stopPlay();
+    if (same) return;
+    startClip(btn);
+}
+
+function paNext() {
+    clearTimeout(PA.timer);
+    if (!PA.active || PA.paused) return;
+    if (PA.idx >= PA.btns.length) { PA.active = false; clearNowPlaying(); return; }
+    const btn = PA.btns[PA.idx];
+    goTo(slideIndexOf(btn), true);
+    startClip(btn);
+}
+
+function playAll() {
+    const resumable = currentAudio && currentBtn && currentAudio.paused && !currentAudio.ended && currentAudio.currentTime > 0;
+    if (resumable) {
+        PA.btns = getAllBtns(); PA.idx = PA.btns.indexOf(currentBtn); PA.active = true; PA.paused = false;
+        currentBtn.classList.add('playing');
+        currentAudio.play();
+        return;
+    }
+    if (PA.active && PA.paused) { PA.paused = false; paNext(); return; }
+    stopPlay();
+    PA.btns = getAllBtns();
+    const first = slides[cur].querySelector('.speaker-btn');
+    PA.idx = first ? PA.btns.indexOf(first) : 0;
+    PA.active = true; PA.paused = false;
+    paNext();
+}
+
+function pausePlay() {
+    if (currentAudio && !currentAudio.paused) {
+        currentAudio.pause();
+        if (currentBtn) currentBtn.classList.remove('playing');
+    }
+    if (PA.active) { PA.paused = true; clearTimeout(PA.timer); }
+}
+
+function stopPlay() {
+    clearTimeout(PA.timer);
+    PA.active = false; PA.paused = false;
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        if (currentBtn) currentBtn.classList.remove('playing');
+    }
+    currentAudio = null; currentBtn = null;
+    clearRowActive(); clearWordTrack(); clearNowPlaying();
+}
+
+function setSpeed(val) {
+    speed = parseFloat(val);
+    if (currentAudio) currentAudio.playbackRate = speed;
+}
+
+/* ---------- Pronunciation tracer (word highlighting follows audio) ---------- */
+function startWordTrack(btn, audio) {
+    const row = btn.closest('.script-row');
+    if (!row) return;
+    const textEl = row.querySelector('.script-text');
+    if (!textEl) return;
+    const words = Array.from(textEl.querySelectorAll('.word'));
+    if (!words.length) return;
+    const weights = words.map(w => w.textContent.length + 2);
+    const total = weights.reduce((a, b) => a + b, 0);
+    const cum = []; let run = 0;
+    weights.forEach(w => { run += w; cum.push(run / total); });
+    let lastIdx = -1;
+    const handler = () => {
+        const dur = audio.duration;
+        if (!dur || isNaN(dur)) return;
+        const pct = audio.currentTime / dur;
+        let idx = cum.findIndex(c => pct <= c);
+        if (idx < 0) idx = words.length - 1;
+        if (idx !== lastIdx) {
+            if (lastIdx >= 0) words[lastIdx].classList.remove('active');
+            words[idx].classList.add('active');
+            lastIdx = idx;
+        }
+    };
+    audio.addEventListener('timeupdate', handler);
+    audio.addEventListener('ended', () => audio.removeEventListener('timeupdate', handler), { once: true });
+}
+function clearWordTrack() { document.querySelectorAll('.script-text .word.active').forEach(w => w.classList.remove('active')); }
+
+function setNowPlaying(btn) {
+    const row = btn.closest('.script-row');
+    if (!row) return;
+    document.querySelectorAll('.script-row.active').forEach(r => r.classList.remove('active'));
+    row.classList.add('active');
+    selectTarget(row);
+    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const textEl = row.querySelector('.script-text');
+    if (textEl) {
+        document.getElementById('nowPlayingText').textContent = textEl.textContent.trim();
+        document.getElementById('nowPlaying').classList.add('active');
+    }
+}
+function clearRowActive() { document.querySelectorAll('.script-row.active').forEach(r => r.classList.remove('active')); }
+function clearNowPlaying() {
+    document.getElementById('nowPlaying').classList.remove('active');
+    document.getElementById('nowPlayingText').textContent = '—';
+}
+
+/* ---------- Chinese translation toggle ---------- */
+function toggleAllCN(show) { document.getElementById('deck').classList.toggle('cn-active', show); }
+
+/* ===================== Microphone: pronunciation feedback ===================== */
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+const MIC = { rec: null, listening: false, panel: null };
+const NUMW = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty'];
+
+function tok(t) {
+    return t.toLowerCase().replace(/[’‘]/g, "'").replace(/\([^)]*\)/g, ' ').replace(/[-–—]/g, ' ')
+        .replace(/[^a-z0-9'\s]/g, ' ').split(/\s+/).filter(Boolean)
+        .map(w => w.replace(/^'+|'+$/g, '')).filter(Boolean)
+        .map(w => (/^\d+$/.test(w) && +w <= 20) ? NUMW[+w] : w);
+}
+function lev(a, b) {
+    const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+    for (let j = 1; j <= b.length; j++) d[0][j] = j;
+    for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++)
+        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    return d[a.length][b.length];
+}
+function sim(a, b) {
+    if (a === b || a.replace(/'/g, '') === b.replace(/'/g, '')) return 1;
+    return (1 - lev(a, b) / Math.max(a.length, b.length)) >= 0.7 ? 0.5 : 0;
+}
+function subCost(a, b) { const s = sim(a, b); return s === 1 ? 0 : s === 0.5 ? 0.4 : 1.5; }
+
+function align(T, H) {
+    const n = T.length, m = H.length;
+    const D = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
+    for (let i = 1; i <= n; i++) D[i][0] = i;
+    for (let j = 1; j <= m; j++) D[0][j] = j;
+    for (let i = 1; i <= n; i++) for (let j = 1; j <= m; j++)
+        D[i][j] = Math.min(D[i - 1][j - 1] + subCost(T[i - 1], H[j - 1]), D[i - 1][j] + 1, D[i][j - 1] + 1);
+    const res = new Array(n), extras = [];
+    let i = n, j = m;
+    while (i > 0 || j > 0) {
+        if (i > 0 && j > 0 && Math.abs(D[i][j] - (D[i - 1][j - 1] + subCost(T[i - 1], H[j - 1]))) < 1e-9) {
+            const s = sim(T[i - 1], H[j - 1]);
+            res[i - 1] = { w: T[i - 1], status: s === 1 ? 'ok' : s === 0.5 ? 'close' : 'wrong', heard: H[j - 1] };
+            i--; j--;
+        } else if (i > 0 && Math.abs(D[i][j] - (D[i - 1][j] + 1)) < 1e-9) {
+            res[i - 1] = { w: T[i - 1], status: 'missed' }; i--;
+        } else { extras.unshift(H[j - 1]); j--; }
+    }
+    return { res, extras };
+}
+function scoreOf(a, n) {
+    let pts = 0;
+    a.res.forEach(r => { if (r.status === 'ok') pts += 1; else if (r.status === 'close') pts += 0.5; });
+    return Math.round(100 * Math.max(0, pts - 0.25 * a.extras.length) / n);
+}
+
+function targetTextOf(slide) {
+    if (slide.dataset.dialogue) {
+        const row = slide.querySelector('.script-row.target') || slide.querySelector('.script-row');
+        if (!row) return '';
+        const u = DIALOGUE[+row.dataset.i];
+        return (u.s || u.t).replace(/\([^)]*\)/g, '').trim();
+    }
+    return slide.dataset.practice || '';
+}
+
+/* Pop-up pronunciation window: one floating 🎤 button per mic slide opens a modal */
+let micFab = null, micModal = null, micPanel = null;
+
+function makeMicUI() {
+    micFab = document.createElement('button');
+    micFab.type = 'button'; micFab.className = 'mic-fab'; micFab.hidden = true;
+    micFab.title = 'Practise your pronunciation'; micFab.setAttribute('aria-label', 'Open pronunciation practice');
+    micFab.textContent = '🎤';
+    document.getElementById('slides').appendChild(micFab);
+
+    micModal = document.createElement('div');
+    micModal.className = 'mic-modal'; micModal.hidden = true;
+    micModal.innerHTML = '<div class="mic-backdrop"></div>'
+        + '<div class="mic-panel" role="dialog" aria-modal="true" aria-label="Pronunciation practice">'
+        + '<button type="button" class="mic-close" aria-label="Close">×</button>'
+        + '<div class="mic-lines"><button type="button" class="mic-step mic-prev" aria-label="Previous line">‹</button>'
+        + '<span class="mic-linecount"></span><button type="button" class="mic-step mic-next" aria-label="Next line">›</button>'
+        + '<button type="button" class="mic-listen">🔊 Listen</button></div>'
+        + '<div class="mic-top"><button type="button" class="mic-btn" aria-label="Record your pronunciation" title="Record">🎤</button>'
+        + '<div class="mic-target"><span class="mic-label">Say this</span><span class="mic-target-text"></span></div></div>'
+        + '<div class="mic-status"></div>'
+        + '<div class="mic-result" hidden><div class="score-row"><div class="score-ring"><span></span></div>'
+        + '<div class="score-meta"><strong></strong><small></small></div></div>'
+        + '<div class="word-feedback"></div><ul class="mic-tips"></ul>'
+        + '<div class="mic-note">Feedback comes from your browser’s speech recognition, so it shows how clearly each word was understood.</div></div></div>';
+    document.getElementById('deck').appendChild(micModal);
+    micPanel = micModal.querySelector('.mic-panel');
+
+    micFab.addEventListener('click', openMic);
+    micModal.querySelector('.mic-backdrop').addEventListener('click', closeMic);
+    micModal.querySelector('.mic-close').addEventListener('click', closeMic);
+    micPanel.querySelector('.mic-btn').addEventListener('click', () => toggleMic(slides[cur], micPanel));
+    micPanel.querySelector('.mic-prev').addEventListener('click', () => stepLine(-1));
+    micPanel.querySelector('.mic-next').addEventListener('click', () => stepLine(1));
+    micPanel.querySelector('.mic-listen').addEventListener('click', () => {
+        const row = slides[cur].querySelector('.script-row.target');
+        const btn = row && row.querySelector('.speaker-btn');
+        if (btn) { stopPlay(); startClip(btn); }
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !micModal.hidden) closeMic(); });
+}
+function micOpen() { return micModal && !micModal.hidden; }
+function openMic() {
+    stopPlay();
+    micModal.hidden = false;
+    refreshPanel(slides[cur]);
+    micPanel.querySelector('.mic-btn').focus();
+}
+function closeMic() {
+    stopMic();
+    if (window.speechSynthesis) speechSynthesis.cancel();
+    if (micModal) micModal.hidden = true;
+}
+function stepLine(d) {
+    const rows = [...slides[cur].querySelectorAll('.script-row')];
+    const i = rows.findIndex(r => r.classList.contains('target'));
+    const n = Math.max(0, Math.min(rows.length - 1, (i < 0 ? 0 : i) + d));
+    if (rows[n]) { selectTarget(rows[n], true); rows[n].scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+}
+function refreshPanel(slide) {
+    if (!micPanel || slide !== slides[cur]) return;
+    const rows = [...slide.querySelectorAll('.script-row')];
+    const i = rows.findIndex(r => r.classList.contains('target'));
+    micPanel.querySelector('.mic-lines').style.display = rows.length ? '' : 'none';
+    micPanel.querySelector('.mic-linecount').textContent = rows.length ? 'Line ' + (Math.max(i, 0) + 1) + ' of ' + rows.length : '';
+    micPanel.querySelector('.mic-prev').disabled = i <= 0;
+    micPanel.querySelector('.mic-next').disabled = i >= rows.length - 1;
+    micPanel.querySelector('.mic-target-text').textContent = targetTextOf(slide);
+    micPanel.querySelector('.mic-status').textContent = 'Press the mic and read the sentence aloud.';
+    micPanel.querySelector('.mic-result').hidden = true;
+}
+function selectTarget(row, force) {
+    const slide = row.closest('.slide');
+    if (!slide) return;
+    if (row.classList.contains('target') && !force) return;
+    slide.querySelectorAll('.script-row.target').forEach(r => r.classList.remove('target'));
+    row.classList.add('target');
+    if (MIC.listening) stopMic();
+    refreshPanel(slide);
+}
+
+function stopMic() {
+    if (MIC.rec) { try { MIC.rec.abort(); } catch (e) {} }
+    MIC.rec = null; MIC.listening = false;
+    document.querySelectorAll('.mic-btn.listening').forEach(b => b.classList.remove('listening'));
+}
+
+function toggleMic(slide, panel) {
+    const status = panel.querySelector('.mic-status');
+    if (MIC.listening) { try { MIC.rec.stop(); } catch (e) {} return; }
+    if (!SR) { status.textContent = 'Speech recognition isn’t available in this browser. Please use Chrome, Edge or Safari.'; return; }
+    const target = targetTextOf(slide);
+    const T = tok(target);
+    if (!T.length) return;
+    stopPlay();
+    if (window.speechSynthesis) speechSynthesis.cancel();
+    panel.querySelector('.mic-result').hidden = true;
+    const rec = new SR();
+    rec.lang = 'en-GB'; rec.interimResults = true; rec.maxAlternatives = 5; rec.continuous = false;
+    let finalRes = null, errored = false;
+    const btn = panel.querySelector('.mic-btn');
+    rec.onstart = () => { MIC.listening = true; btn.classList.add('listening'); status.textContent = 'Listening… read the sentence aloud.'; };
+    rec.onresult = e => {
+        const r = e.results[e.results.length - 1];
+        if (r.isFinal) finalRes = r;
+        else status.textContent = 'Listening… ' + r[0].transcript;
+    };
+    rec.onerror = e => {
+        errored = true;
+        const msg = {
+            'not-allowed': 'Microphone access is blocked. Allow it in your browser’s address bar and try again.',
+            'service-not-allowed': 'Microphone access is blocked. Allow it in your browser settings and try again.',
+            'no-speech': 'I didn’t hear anything. Move closer to the microphone and try again.',
+            'audio-capture': 'No microphone was found.',
+            'network': 'The speech service couldn’t be reached. Check your internet connection.',
+            'aborted': ''
+        }[e.error];
+        status.textContent = msg === undefined ? 'Recognition error: ' + e.error : msg;
+    };
+    rec.onend = () => {
+        btn.classList.remove('listening');
+        const wasThis = MIC.rec === rec;
+        MIC.listening = false; if (wasThis) MIC.rec = null;
+        if (!wasThis) return;
+        if (finalRes) evaluate(panel, T, finalRes);
+        else if (!errored) status.textContent = 'I didn’t catch that. Press the mic and try again.';
+    };
+    MIC.rec = rec;
+    try { rec.start(); } catch (e) { status.textContent = 'Could not start the microphone. Please try again.'; MIC.rec = null; }
+}
+
+function evaluate(panel, T, result) {
+    let best = null;
+    for (let k = 0; k < result.length; k++) {
+        const H = tok(result[k].transcript);
+        const a = align(T, H);
+        const sc = scoreOf(a, T.length);
+        if (!best || sc > best.sc) best = { a, sc, text: result[k].transcript, conf: result[k].confidence };
+    }
+    const grade = best.sc >= 90 ? ['Excellent!', '#2e9e4f'] : best.sc >= 75 ? ['Good job', '#6aa84f']
+        : best.sc >= 50 ? ['Getting there', '#d4a043'] : ['Try again', '#c0392b'];
+    const box = panel.querySelector('.mic-result');
+    const ring = box.querySelector('.score-ring');
+    ring.style.setProperty('--pct', best.sc); ring.style.setProperty('--rc', grade[1]);
+    ring.querySelector('span').textContent = best.sc + '%';
+    box.querySelector('.score-meta strong').textContent = grade[0];
+    const confTxt = best.conf ? ' · recognition confidence ' + Math.round(best.conf * 100) + '%' : '';
+    box.querySelector('.score-meta small').textContent = 'Heard: “' + best.text.trim() + '”' + confTxt;
+
+    const fb = box.querySelector('.word-feedback');
+    fb.innerHTML = '';
+    best.a.res.forEach(r => {
+        const s = document.createElement('span');
+        s.className = 'word fb fb-' + r.status; s.dataset.word = r.w; s.textContent = r.w;
+        s.title = r.status === 'ok' ? 'Clear' : r.status === 'close' ? 'Close — heard “' + r.heard + '”'
+            : r.status === 'wrong' ? 'Heard “' + r.heard + '”' : 'Not heard';
+        fb.appendChild(s);
+    });
+    best.a.extras.forEach(x => {
+        const s = document.createElement('span');
+        s.className = 'fb fb-extra'; s.textContent = '+ ' + x; s.title = 'Extra word heard';
+        fb.appendChild(s);
+    });
+
+    const tips = [];
+    const wrong = best.a.res.filter(r => r.status === 'wrong' || r.status === 'close');
+    const missed = best.a.res.filter(r => r.status === 'missed');
+    wrong.slice(0, 4).forEach(r => tips.push('“' + r.w + '” sounded like “' + r.heard + '”. Hover over it to hear the model pronunciation.'));
+    if (missed.length) tips.push('Not heard: ' + missed.slice(0, 6).map(r => '“' + r.w + '”').join(', ') + '. Say every word clearly, including short ones.');
+    if (best.a.extras.length) tips.push('Extra words were picked up (' + best.a.extras.slice(0, 4).join(', ') + '). Try to follow the script exactly.');
+    if (best.conf && best.conf < 0.6) tips.push('Recognition confidence was low — speak a little more slowly and clearly, or move closer to the microphone.');
+    if (best.sc >= 90) tips.push('Great clarity! Now play the audio and try to match its rhythm and stress.');
+    box.querySelector('.mic-tips').innerHTML = tips.map(t => '<li>' + esc2(t) + '</li>').join('');
+    box.hidden = false;
+    panel.querySelector('.mic-status').textContent = 'Press the mic to try again.';
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/* ---------- Boot ---------- */
+document.addEventListener('DOMContentLoaded', function () {
+    buildDialogueSlides();
+    slides = [...document.querySelectorAll('#slides > .slide')];
+    wordifyStatic();
+    initTranslations();
+    initLanguageTooltips();
+    const firstDlg = slides.findIndex(s => s.dataset.dialogue);
+    slides.forEach((s, i) => { if (!s.dataset.nomic && i >= firstDlg && (s.dataset.dialogue || s.dataset.practice)) s.dataset.mic = '1'; });   // microphone: dialogue + language slides
+    makeMicUI();
+    initWordPronunciation();
+    document.getElementById('slides').addEventListener('click', e => {
+        const row = e.target.closest('.script-row');
+        if (row) selectTarget(row);
+    });
+    slides.forEach(s => { const r = s.querySelector('.script-row'); if (r) r.classList.add('target'); });
+    slides.forEach(s => s.querySelectorAll('video').forEach(v => v.addEventListener('play', () => { stopPlay(); stopMic(); })));
+    applyScale();
+    initNav();
+    if (window.speechSynthesis) speechSynthesis.getVoices();
+});
+
+</script>
+</body>
+</html>
